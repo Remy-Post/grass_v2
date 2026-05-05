@@ -49,7 +49,11 @@ export function ServiceCard({ service }: Props) {
           ) : null}
         </div>
       </div>
-      <BeforeAfter alt={`${d.name} — before and after (mockup)`} />
+      <BeforeAfter
+        alt={`${d.name} before and after comparison`}
+        beforeSrc={d.beforeImageSrc}
+        afterSrc={d.afterImageSrc}
+      />
     </article>
   );
 }

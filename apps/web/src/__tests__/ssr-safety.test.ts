@@ -10,6 +10,7 @@ import {
   FooterDotGrid,
 } from '../components/shared/FooterDotGrid.js';
 import { TransformationSlider } from '../components/home/TransformationSlider.js';
+import { BeforeAfter } from '../components/services/BeforeAfter.js';
 
 describe('Client components — SSR safety', () => {
   test('Reveal wraps children without throwing', () => {
@@ -91,5 +92,21 @@ describe('Client components — SSR safety', () => {
     );
     expect(html).toContain('Before-test');
     expect(html).toContain('After-test');
+  });
+
+  test('Services BeforeAfter renders labels and image paths', () => {
+    const html = renderToString(
+      createElement(BeforeAfter, {
+        alt: 'Service comparison',
+        beforeSrc: '/images/services/missing-before.png',
+        afterSrc: '/images/services/missing-after.png',
+        beforeLabel: 'Rough',
+        afterLabel: 'Clean',
+      }),
+    );
+
+    expect(html).toContain('Rough');
+    expect(html).toContain('Clean');
+    expect(html).toContain('Service comparison');
   });
 });
