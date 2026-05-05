@@ -1,0 +1,42 @@
+{
+  "name": "@lawnguy/api",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "The Lawn Guy Bradford — Express + Mongoose backend.",
+  "main": "dist/index.js",
+  "scripts": {
+    "dev": "tsx watch src/index.ts",
+    "build": "tsc -p tsconfig.build.json",
+    "start": "node dist/index.js",
+    "lint": "eslint src --max-warnings 0",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run --passWithNoTests",
+    "seed": "tsx src/seed.ts",
+    "clean": "rimraf dist .turbo tsconfig.tsbuildinfo tsconfig.build.tsbuildinfo"
+  },
+  "dependencies": {
+    "@google/generative-ai": "^0.21.0",
+    "@lawnguy/brand": "workspace:*",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^5.0.1",
+    "mongoose": "^8.8.3",
+    "nodemailer": "^6.9.16",
+    "openai": "^4.76.0",
+    "pino": "^9.5.0",
+    "pino-http": "^10.3.0",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.17",
+    "@types/express": "^5.0.0",
+    "@types/node": "^22.10.0",
+    "@types/nodemailer": "^6.4.17",
+    "pino-pretty": "^11.3.0",
+    "rimraf": "^6.0.0",
+    "tsx": "^4.19.2",
+    "typescript": "^5.6.3",
+    "vitest": "^2.1.5"
+  }
+}

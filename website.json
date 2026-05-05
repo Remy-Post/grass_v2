@@ -1,0 +1,1145 @@
+{
+  "schemaVersion": "website.v2",
+  "metadata": {
+    "project": "The Lawn Guy Bradford",
+    "createdAt": "2026-05-04",
+    "status": "v2-website-spec-and-app-content",
+    "brandFile": "brand.json",
+    "targetProjectPath": "C:/Users/debbi/Downloads/Grass",
+    "targetApp": "Grass-client and Grass-server configurable website"
+  },
+  "v2Goal": {
+    "summary": "Replace the proof-of-concept lawn marketplace feel with a modern, personal, Bradford-only lawn care website for Remy.",
+    "primaryConversion": "Text For A Quote",
+    "secondaryConversion": "Email for a quote or question",
+    "businessPriority": "Win 5-10 recurring mowing clients in the first season, then add needed one-off services after quote visits.",
+    "experiencePromise": "A showpiece visual website that still makes the service simple: text, quote visit, clean finish."
+  },
+  "mustReplaceFromV1": [
+    "Twin Cities service-area language",
+    "Marketplace/platform language",
+    "Pros, crews, matched providers, and vetted crew claims",
+    "Instant pricing",
+    "Discount-led launch copy",
+    "Insurance claims that are not yet true",
+    "Hard satisfaction guarantees that overpromise",
+    "Winter/snow services",
+    "Broad multi-city service area",
+    "Paid pesticide/weed/grub/pest treatment claims unless licensing is verified"
+  ],
+  "siteArchitecture": {
+    "structure": "Mini multi-page",
+    "primaryPages": [
+      {
+        "route": "/",
+        "name": "Home",
+        "purpose": "Introduce the brand, show the modern lawn-care promise, push visitors to text for a quote, and route visitors to services, about, and contact.",
+        "sections": [
+          "Interactive lawn hero",
+          "Visual showcase",
+          "Problem-first service preview",
+          "Quote visit process",
+          "Owner note",
+          "Trust and service standard",
+          "FAQ",
+          "Final text-for-quote CTA"
+        ]
+      },
+      {
+        "route": "/services",
+        "name": "Services",
+        "purpose": "Walk service by service through the problems customers recognize and the clean result Remy provides.",
+        "sections": [
+          "Problem-first service scroll",
+          "Mowing core",
+          "Edges and trimming",
+          "Leaf cleanup",
+          "Seasonal cleanup",
+          "Seeding and fertilizing",
+          "Garden maintenance",
+          "Hidden/unavailable services note",
+          "Quote CTA"
+        ]
+      },
+      {
+        "route": "/about",
+        "name": "About",
+        "purpose": "Make the business feel personal and trustworthy without overexplaining Remy's age.",
+        "sections": [
+          "Owner photo and note",
+          "Why Bradford",
+          "Service standards",
+          "How photos and reviews will be built",
+          "Contact CTA"
+        ]
+      },
+      {
+        "route": "/contact",
+        "name": "Contact",
+        "purpose": "Give people a direct way to text or email and collect a short quote request.",
+        "sections": [
+          "Text-first CTA",
+          "Short quote-helper form",
+          "Evening/weekend quote visits",
+          "Service area",
+          "FAQ snippets"
+        ]
+      },
+      {
+        "route": "/quote-visit",
+        "name": "Quote Visit",
+        "replaces": "/pricing",
+        "purpose": "Explain why pricing is quoted after seeing the yard instead of using instant prices.",
+        "sections": [
+          "No instant price promise",
+          "What affects a quote",
+          "First appointment quote flow",
+          "Overgrown-yard note",
+          "Text for quote CTA"
+        ]
+      }
+    ],
+    "navigation": [
+      {
+        "label": "Services",
+        "href": "/services"
+      },
+      {
+        "label": "About",
+        "href": "/about"
+      },
+      {
+        "label": "Quote Visit",
+        "href": "/quote-visit"
+      },
+      {
+        "label": "Contact",
+        "href": "/contact"
+      }
+    ]
+  },
+  "siteSettings": {
+    "businessName": "The Lawn Guy Bradford",
+    "phoneDisplay": "Phone number to add",
+    "phoneHref": "tel:",
+    "emailDisplay": "remy.post.06@gmail.com",
+    "emailHref": "mailto:remy.post.06@gmail.com",
+    "serviceArea": "Bradford West Gwillimbury",
+    "brandColor": "#1f5a3a",
+    "brandDark": "#163f29",
+    "accentColor": "#f5c518",
+    "bg": "#f7f6f1",
+    "surface": "#ffffff",
+    "surfaceAlt": "#efeee7",
+    "ink": "#1a1f1a",
+    "inkSoft": "#4a534a",
+    "inkMuted": "#7a807a",
+    "line": "#e2e0d6",
+    "grass": "#7cb342",
+    "heroBadge": "Bradford/BWG only",
+    "heroTitle": "Modern Lawn Care In Bradford",
+    "heroEmphasis": "with a clean finish.",
+    "heroBody": "Mowing, trimming, edging, and seasonal yard care by Remy. Text for a quote, book a visit, and come home to a sharper lawn.",
+    "heroPhotoLabel": "interactive lawn hero - overgrown to clean cut Bradford yard",
+    "socialScore": "3 years",
+    "socialCount": "Local lawn care experience; reviews starting this season",
+    "googleBusinessProfileUrl": "https://www.google.com/search?q=The%20Lawn%20Guy%20Bradford%20ON",
+    "trustBadges": [
+      {
+        "icon": "MapPin",
+        "label": "Bradford/BWG only"
+      },
+      {
+        "icon": "MessageCircle",
+        "label": "Text-first quotes"
+      },
+      {
+        "icon": "Scissors",
+        "label": "Cut + trim + blow"
+      },
+      {
+        "icon": "CalendarDays",
+        "label": "Evening/weekend quote visits"
+      },
+      {
+        "icon": "ThumbsUp",
+        "label": "48-hour fix fallback"
+      }
+    ],
+    "quoteServices": [
+      "Lawn mowing",
+      "Trimming and edging",
+      "Leaf cleanup",
+      "Seasonal cleanup",
+      "Seeding and fertilizing",
+      "Garden maintenance"
+    ],
+    "lawnSizes": [
+      "Small",
+      "Medium",
+      "Large",
+      "Not sure"
+    ],
+    "processSeamlessScroll": true,
+    "footerDotAnimation": true
+  },
+  "contentCollections": {
+    "nav-items": [
+      {
+        "title": "Services",
+        "slug": "services",
+        "enabled": true,
+        "order": 10,
+        "data": {
+          "label": "Services",
+          "href": "/services"
+        }
+      },
+      {
+        "title": "About",
+        "slug": "about",
+        "enabled": true,
+        "order": 20,
+        "data": {
+          "label": "About",
+          "href": "/about"
+        }
+      },
+      {
+        "title": "Quote Visit",
+        "slug": "quote-visit",
+        "enabled": true,
+        "order": 30,
+        "data": {
+          "label": "Quote Visit",
+          "href": "/quote-visit"
+        }
+      },
+      {
+        "title": "Contact",
+        "slug": "contact",
+        "enabled": true,
+        "order": 40,
+        "data": {
+          "label": "Contact",
+          "href": "/contact"
+        }
+      }
+    ],
+    "services": [
+      {
+        "title": "Overgrown or uneven grass",
+        "slug": "mowing",
+        "enabled": true,
+        "order": 10,
+        "data": {
+          "name": "Lawn mowing",
+          "icon": "Mower",
+          "price": 0,
+          "includes": [
+            "Mow the lawn at a clean, healthy height",
+            "Trim around edges, fences, trees, and obstacles",
+            "Blow grass off walkways, driveway edges, and visible hard surfaces",
+            "Mulch clippings by default when conditions allow",
+            "Quick finish check before leaving when possible"
+          ],
+          "freq": "Weekly, biweekly, or as-needed",
+          "beforeImageSrc": "/images/services/mow-before.png",
+          "afterImageSrc": "/images/services/mow-after.png",
+          "itemImageSrc": "/images/service-items/mow-item.png",
+          "reviewKeywords": [
+            "mow",
+            "mowing",
+            "grass cut",
+            "lawn cut",
+            "weekly",
+            "biweekly",
+            "clean finish"
+          ],
+          "problem": "The lawn is getting long, uneven, or hard to keep up with.",
+          "result": "A cleaner cut that makes the whole yard feel cared for.",
+          "quoteNote": "Quoted after seeing the yard."
+        }
+      },
+      {
+        "title": "Messy edges",
+        "slug": "trimming-edging",
+        "enabled": true,
+        "order": 20,
+        "data": {
+          "name": "Trimming and edging",
+          "icon": "Scissors",
+          "price": 0,
+          "includes": [
+            "Trim around fences, posts, trees, and tight areas",
+            "Sharpen visible borders where practical",
+            "Clean up grass on hard surfaces",
+            "Pair with mowing for a finished look"
+          ],
+          "freq": "With mowing or as quoted",
+          "beforeImageSrc": "/images/services/edge-before.png",
+          "afterImageSrc": "/images/services/edge-after.png",
+          "itemImageSrc": "/images/service-items/edge-item.png",
+          "reviewKeywords": [
+            "edge",
+            "edging",
+            "trim",
+            "trimming",
+            "clean edges",
+            "walkways"
+          ],
+          "problem": "The cut may be done, but the borders still look messy.",
+          "result": "Sharper lines around the parts people notice first.",
+          "quoteNote": "Usually included with standard mowing."
+        }
+      },
+      {
+        "title": "Leaves and yard debris",
+        "slug": "leaf-cleanup",
+        "enabled": true,
+        "order": 30,
+        "data": {
+          "name": "Leaf cleanup",
+          "icon": "Leaf",
+          "price": 0,
+          "includes": [
+            "Collect or move leaves from lawn areas",
+            "Blow visible hard surfaces clean",
+            "Focus on practical cleanup for a better-looking yard",
+            "Quote disposal or bagging needs after seeing the property"
+          ],
+          "freq": "Fall and as-needed",
+          "beforeImageSrc": "/images/services/leaf-before.png",
+          "afterImageSrc": "/images/services/leaf-after.png",
+          "itemImageSrc": "/images/service-items/leaf-item.png",
+          "reviewKeywords": [
+            "leaf",
+            "leaves",
+            "fall cleanup",
+            "yard cleanup",
+            "debris"
+          ],
+          "problem": "Leaves and debris make the yard look neglected and can smother the lawn.",
+          "result": "A clearer, easier-to-maintain property.",
+          "quoteNote": "Quoted based on amount of leaves and cleanup scope."
+        }
+      },
+      {
+        "title": "Seasonal reset",
+        "slug": "seasonal-cleanup",
+        "enabled": true,
+        "order": 40,
+        "data": {
+          "name": "Seasonal cleanup",
+          "icon": "Flower",
+          "price": 0,
+          "includes": [
+            "Spring or fall property tidy-up",
+            "Basic debris cleanup",
+            "First or final mow when needed",
+            "Light bed and edge cleanup when within scope",
+            "Suggestions for mowing or add-ons after the visit"
+          ],
+          "freq": "Spring and fall",
+          "beforeImageSrc": "/images/services/seasonal-before.png",
+          "afterImageSrc": "/images/services/seasonal-after.png",
+          "itemImageSrc": "/images/service-items/seasonal-item.png",
+          "reviewKeywords": [
+            "seasonal cleanup",
+            "spring cleanup",
+            "fall cleanup",
+            "yard reset",
+            "cleanup"
+          ],
+          "problem": "The yard needs a reset before or after the main growing season.",
+          "result": "A cleaner starting point for the next part of the season.",
+          "quoteNote": "Quoted after a walk-through."
+        }
+      },
+      {
+        "title": "Thin or tired-looking lawn",
+        "slug": "seeding-fertilizing",
+        "enabled": true,
+        "order": 50,
+        "data": {
+          "name": "Seeding and fertilizing",
+          "icon": "Sprout",
+          "price": 0,
+          "includes": [
+            "Discuss thin areas during the quote visit",
+            "Seed where appropriate",
+            "Apply fertilizer where appropriate and label-compliant",
+            "Set simple expectations for watering and follow-up"
+          ],
+          "freq": "Seasonal and as-needed",
+          "beforeImageSrc": "/images/services/fert-before.png",
+          "afterImageSrc": "/images/services/fert-after.png",
+          "itemImageSrc": "/images/service-items/fert-item.png",
+          "reviewKeywords": [
+            "seed",
+            "seeding",
+            "fertilizer",
+            "fertilizing",
+            "green lawn",
+            "lawn health"
+          ],
+          "problem": "The lawn looks thin, patchy, or tired.",
+          "result": "A practical plan to help the lawn look fuller over time.",
+          "quoteNote": "Quoted after seeing lawn condition."
+        }
+      },
+      {
+        "title": "Messy garden areas",
+        "slug": "garden-maintenance",
+        "enabled": true,
+        "order": 60,
+        "data": {
+          "name": "Garden maintenance",
+          "icon": "Flower2",
+          "price": 0,
+          "includes": [
+            "Light garden tidy-up",
+            "Basic weeding by hand where practical",
+            "Clean visible edges and small areas",
+            "Suggest only what the yard actually needs"
+          ],
+          "freq": "As-needed add-on",
+          "beforeImageSrc": "/images/services/mulch-before.png",
+          "afterImageSrc": "/images/services/mulch-after.png",
+          "itemImageSrc": "/images/service-items/mulch-item.png",
+          "reviewKeywords": [
+            "garden",
+            "garden maintenance",
+            "beds",
+            "tidy",
+            "yard care"
+          ],
+          "problem": "Garden areas make the yard feel unfinished.",
+          "result": "A tidier property without turning the job into major landscaping.",
+          "quoteNote": "Light maintenance only; major landscaping is out of scope."
+        }
+      },
+      {
+        "title": "Weed treatment",
+        "slug": "weed-treatment-hidden",
+        "enabled": false,
+        "order": 90,
+        "data": {
+          "name": "Weed treatment",
+          "icon": "ShieldX",
+          "price": 0,
+          "includes": [
+            "Hidden until Ontario licensing and product-label compliance are confirmed"
+          ],
+          "freq": "Not advertised at launch",
+          "beforeImageSrc": "/images/services/weed-before.png",
+          "afterImageSrc": "/images/services/weed-after.png",
+          "itemImageSrc": "/images/service-items/weed-item.png",
+          "reviewKeywords": [
+            "weed",
+            "weeds",
+            "weed control"
+          ],
+          "problem": "Customers may ask about weeds.",
+          "result": "Discuss lawn-health concerns during the quote visit without advertising unverified pesticide treatment.",
+          "quoteNote": "Do not publish as an active paid treatment unless licensing is verified."
+        }
+      }
+    ],
+    "add-ons": [
+      {
+        "title": "Overgrown first cut",
+        "slug": "overgrown-first-cut",
+        "enabled": true,
+        "order": 10,
+        "data": {
+          "label": "Overgrown first cut",
+          "price": 0
+        }
+      },
+      {
+        "title": "Leaf cleanup",
+        "slug": "leaf-cleanup",
+        "enabled": true,
+        "order": 20,
+        "data": {
+          "label": "Leaf cleanup",
+          "price": 0
+        }
+      },
+      {
+        "title": "Garden tidy-up",
+        "slug": "garden-tidy-up",
+        "enabled": true,
+        "order": 30,
+        "data": {
+          "label": "Garden tidy-up",
+          "price": 0
+        }
+      },
+      {
+        "title": "Seeding",
+        "slug": "seeding",
+        "enabled": true,
+        "order": 40,
+        "data": {
+          "label": "Seeding",
+          "price": 0
+        }
+      },
+      {
+        "title": "Fertilizing",
+        "slug": "fertilizing",
+        "enabled": true,
+        "order": 50,
+        "data": {
+          "label": "Fertilizing",
+          "price": 0
+        }
+      },
+      {
+        "title": "Pet waste cleanup",
+        "slug": "pet-waste-cleanup-hidden",
+        "enabled": false,
+        "order": 90,
+        "data": {
+          "label": "Pet waste cleanup",
+          "price": 0
+        }
+      }
+    ],
+    "process-steps": [
+      {
+        "title": "Text Remy",
+        "slug": "text-remy",
+        "enabled": true,
+        "order": 10,
+        "data": {
+          "number": "01",
+          "icon": "MessageCircle",
+          "title": "Text Remy",
+          "description": "Send your address, what you need, and a few photos if you have them."
+        }
+      },
+      {
+        "title": "Book a quick look",
+        "slug": "book-quick-look",
+        "enabled": true,
+        "order": 20,
+        "data": {
+          "number": "02",
+          "icon": "CalendarDays",
+          "title": "Book a quick look",
+          "description": "Quote visits usually happen evenings or weekends so the yard can be checked properly."
+        }
+      },
+      {
+        "title": "Get a clear quote",
+        "slug": "clear-quote",
+        "enabled": true,
+        "order": 30,
+        "data": {
+          "number": "03",
+          "icon": "ClipboardCheck",
+          "title": "Get a clear quote",
+          "description": "On the first appointment, the quote is discussed in person and summarized by text afterward."
+        }
+      },
+      {
+        "title": "Come home proud",
+        "slug": "come-home-proud",
+        "enabled": true,
+        "order": 40,
+        "data": {
+          "number": "04",
+          "icon": "Sparkles",
+          "title": "Come home proud",
+          "description": "Mowing visits focus on a clean cut, sharp trim, blown hard surfaces, and a better-looking yard."
+        }
+      }
+    ],
+    "benefits": [
+      {
+        "title": "Bradford only",
+        "slug": "bradford-only",
+        "enabled": true,
+        "order": 10,
+        "data": {
+          "icon": "MapPin",
+          "title": "Bradford only",
+          "description": "A focused local service area keeps the brand personal and easier to manage."
+        }
+      },
+      {
+        "title": "Mowing-first service",
+        "slug": "mowing-first",
+        "enabled": true,
+        "order": 20,
+        "data": {
+          "icon": "Mower",
+          "title": "Mowing-first service",
+          "description": "Recurring cuts are the core, with add-ons suggested only when the yard actually needs them."
+        }
+      },
+      {
+        "title": "Simple quotes",
+        "slug": "simple-quotes",
+        "enabled": true,
+        "order": 30,
+        "data": {
+          "icon": "MessageCircle",
+          "title": "Simple quotes",
+          "description": "Text first, quick visit, clear scope, and pricing after the yard is seen."
+        }
+      },
+      {
+        "title": "Clean finish",
+        "slug": "clean-finish",
+        "enabled": true,
+        "order": 40,
+        "data": {
+          "icon": "Scissors",
+          "title": "Clean finish",
+          "description": "Cut, trim, blow, and check the result before leaving when possible."
+        }
+      },
+      {
+        "title": "Owner-led",
+        "slug": "owner-led",
+        "enabled": true,
+        "order": 50,
+        "data": {
+          "icon": "UserRound",
+          "title": "Owner-led",
+          "description": "Visitors hear from Remy directly instead of a faceless platform or franchise."
+        }
+      },
+      {
+        "title": "Launch honest",
+        "slug": "launch-honest",
+        "enabled": true,
+        "order": 60,
+        "data": {
+          "icon": "ShieldCheck",
+          "title": "Launch honest",
+          "description": "The site should be clear about what is available now and what is hidden until ready."
+        }
+      }
+    ],
+    "transformations": [
+      {
+        "title": "Before and after",
+        "slug": "before-after",
+        "enabled": true,
+        "order": 10,
+        "data": {
+          "eyebrow": "The clean finish",
+          "title": "Same yard.",
+          "emphasis": "Sharper result.",
+          "subtitle": "Drag, hover, or scroll through a simple overgrown-to-clean transformation. Replace mockups with real Bradford yard photos as soon as permission-based proof exists.",
+          "badges": [
+            "Cut + trim + blow",
+            "Bradford/BWG",
+            "Mockup until real photos"
+          ],
+          "beforeLabel": "before - overgrown lawn",
+          "afterLabel": "after - clean cut lawn",
+          "beforeTone": "before",
+          "afterTone": "after"
+        }
+      }
+    ],
+    "seasons": [
+      {
+        "title": "Spring",
+        "slug": "spring",
+        "enabled": true,
+        "order": 10,
+        "data": {
+          "icon": "Sprout",
+          "tone": "grass",
+          "label": "Spring",
+          "months": "Apr - Jun",
+          "intro": "Reset the yard after winter and get the first clean cuts started.",
+          "services": [
+            {
+              "serviceSlug": "seasonal-cleanup",
+              "detail": "Spring tidy-up and first reset"
+            },
+            {
+              "serviceSlug": "mowing",
+              "detail": "Start weekly or biweekly mowing"
+            },
+            {
+              "serviceSlug": "seeding-fertilizing",
+              "detail": "Discuss thin areas and seasonal feeding"
+            }
+          ]
+        }
+      },
+      {
+        "title": "Summer",
+        "slug": "summer",
+        "enabled": true,
+        "order": 20,
+        "data": {
+          "icon": "Sun",
+          "tone": "sun",
+          "label": "Summer",
+          "months": "Jun - Sep",
+          "intro": "Keep the lawn maintained when growth and curb appeal matter most.",
+          "services": [
+            {
+              "serviceSlug": "mowing",
+              "detail": "Weekly or biweekly cuts"
+            },
+            {
+              "serviceSlug": "trimming-edging",
+              "detail": "Sharper borders and hard-surface cleanup"
+            },
+            {
+              "serviceSlug": "garden-maintenance",
+              "detail": "Light garden tidy-up as needed"
+            }
+          ]
+        }
+      },
+      {
+        "title": "Fall",
+        "slug": "fall",
+        "enabled": true,
+        "order": 30,
+        "data": {
+          "icon": "Leaf",
+          "tone": "earth",
+          "label": "Fall",
+          "months": "Sep - Nov",
+          "intro": "Clean up leaves, finish the season well, and keep the yard from looking abandoned.",
+          "services": [
+            {
+              "serviceSlug": "leaf-cleanup",
+              "detail": "Leaves and visible debris"
+            },
+            {
+              "serviceSlug": "seasonal-cleanup",
+              "detail": "Fall reset"
+            },
+            {
+              "serviceSlug": "mowing",
+              "detail": "Final cuts as growth slows"
+            }
+          ]
+        }
+      },
+      {
+        "title": "Winter",
+        "slug": "winter-hidden",
+        "enabled": false,
+        "order": 90,
+        "data": {
+          "icon": "Snowflake",
+          "tone": "overcast",
+          "label": "Winter",
+          "months": "Dec - Mar",
+          "intro": "Hidden for v2. The public brand is spring, summer, and fall.",
+          "services": []
+        }
+      }
+    ],
+    "faqs": [
+      {
+        "title": "How do I get a quote?",
+        "slug": "quote",
+        "enabled": true,
+        "order": 10,
+        "data": {
+          "question": "How do I get a quote?",
+          "answer": "Text or email Remy with your address and what you need. For most new yards, Remy will book a quick look before giving the final price."
+        }
+      },
+      {
+        "title": "Do you show prices online?",
+        "slug": "prices",
+        "enabled": true,
+        "order": 20,
+        "data": {
+          "question": "Do you show prices online?",
+          "answer": "Not yet. Lawns can be very different, so quotes are given after seeing the yard, the access, and the amount of work needed."
+        }
+      },
+      {
+        "title": "Where do you work?",
+        "slug": "service-area",
+        "enabled": true,
+        "order": 30,
+        "data": {
+          "question": "Where do you work?",
+          "answer": "The Lawn Guy Bradford serves Bradford West Gwillimbury only at launch."
+        }
+      },
+      {
+        "title": "What does a standard mow include?",
+        "slug": "standard-mow",
+        "enabled": true,
+        "order": 40,
+        "data": {
+          "question": "What does a standard mow include?",
+          "answer": "A standard mow includes cutting the lawn, trimming around key areas, blowing hard surfaces clean, and mulching clippings by default when conditions allow."
+        }
+      },
+      {
+        "title": "What if it rains?",
+        "slug": "rain",
+        "enabled": true,
+        "order": 50,
+        "data": {
+          "question": "What if it rains or the lawn is unsafe to cut?",
+          "answer": "If weather or lawn conditions make the cut unsafe or likely to look bad, Remy will reschedule as soon as practical."
+        }
+      },
+      {
+        "title": "Do I need to be home?",
+        "slug": "home",
+        "enabled": true,
+        "order": 60,
+        "data": {
+          "question": "Do I need to be home?",
+          "answer": "For the first quote visit, it helps if you are available. For future mowing visits, Remy can usually work from access instructions."
+        }
+      },
+      {
+        "title": "What should I do before a visit?",
+        "slug": "before-visit",
+        "enabled": true,
+        "order": 70,
+        "data": {
+          "question": "What should I do before a visit?",
+          "answer": "Please clear pet waste and mention any hidden hazards. Besides that, Remy will handle the yard-care work that is in the quote."
+        }
+      },
+      {
+        "title": "Do you handle overgrown lawns?",
+        "slug": "overgrown",
+        "enabled": true,
+        "order": 80,
+        "data": {
+          "question": "Do you handle overgrown lawns?",
+          "answer": "Yes, but overgrown lawns are quoted separately because they can take more time and may need a different first-cut approach."
+        }
+      },
+      {
+        "title": "Do you offer weed or grub treatments?",
+        "slug": "weed-grub",
+        "enabled": true,
+        "order": 90,
+        "data": {
+          "question": "Do you offer weed or grub treatments?",
+          "answer": "Remy can look at lawn-health concerns during the quote visit. Paid pesticide, herbicide, grub, or pest treatments should not be advertised until Ontario licensing and product-label requirements are confirmed."
+        }
+      }
+    ],
+    "cta-blocks": [
+      {
+        "title": "Hero quote CTA",
+        "slug": "hero",
+        "enabled": true,
+        "order": 10,
+        "data": {
+          "eyebrow": "",
+          "kicker": "Simple quote visit",
+          "headline": "Modern Lawn Care In Bradford",
+          "emphasis": "with a clean finish.",
+          "body": "Text Remy for mowing, trimming, cleanups, and seasonal yard care in Bradford/BWG.",
+          "placeholder": "What does your yard need?",
+          "buttonLabel": "Text For A Quote",
+          "helperText": "No instant prices. No pressure. Just a clear quote after the yard is seen.",
+          "title": "",
+          "subtitle": ""
+        }
+      },
+      {
+        "title": "Final CTA",
+        "slug": "final",
+        "enabled": true,
+        "order": 20,
+        "data": {
+          "eyebrow": "Ready when your lawn is",
+          "kicker": "",
+          "headline": "Come home to a cleaner lawn.",
+          "emphasis": "Start with a text.",
+          "body": "Send the address, what you need, and a few details. Remy will help you book a quick look and quote the work clearly.",
+          "placeholder": "Your address or neighbourhood",
+          "buttonLabel": "Text For A Quote",
+          "helperText": "Serving Bradford West Gwillimbury only.",
+          "title": "",
+          "subtitle": ""
+        }
+      },
+      {
+        "title": "Mobile sticky CTA",
+        "slug": "mobile-sticky",
+        "enabled": true,
+        "order": 30,
+        "data": {
+          "eyebrow": "",
+          "kicker": "",
+          "headline": "",
+          "emphasis": "",
+          "body": "",
+          "placeholder": "",
+          "buttonLabel": "Text",
+          "helperText": "",
+          "title": "Need a quote?",
+          "subtitle": "Text Remy"
+        }
+      }
+    ],
+    "footer-groups": [
+      {
+        "title": "Services",
+        "slug": "services",
+        "enabled": true,
+        "order": 10,
+        "data": {
+          "title": "Services",
+          "links": [
+            "Lawn mowing",
+            "Trimming and edging",
+            "Leaf cleanup",
+            "Seasonal cleanup",
+            "Garden maintenance"
+          ]
+        }
+      },
+      {
+        "title": "Company",
+        "slug": "company",
+        "enabled": true,
+        "order": 20,
+        "data": {
+          "title": "Company",
+          "links": [
+            "About",
+            "Quote Visit",
+            "Service Area",
+            "Contact"
+          ]
+        }
+      },
+      {
+        "title": "Help",
+        "slug": "help",
+        "enabled": true,
+        "order": 30,
+        "data": {
+          "title": "Help",
+          "links": [
+            "FAQ",
+            "Rain Policy",
+            "Before Your Visit",
+            "Privacy"
+          ]
+        }
+      }
+    ],
+    "reviews": []
+  },
+  "pageCopy": {
+    "home": {
+      "hero": {
+        "headline": "Modern Lawn Care In Bradford",
+        "emphasis": "with a clean finish.",
+        "body": "Mowing, trimming, edging, and seasonal yard care by Remy. Text for a quote, book a visit, and come home to a sharper lawn.",
+        "primaryCta": "Text For A Quote",
+        "secondaryCta": "See Services"
+      },
+      "ownerNote": {
+        "headline": "A local lawn guy, not a giant crew.",
+        "body": "I am Remy, and I keep the service simple: I look at the yard, quote the work clearly, and focus on a clean finish every visit."
+      }
+    },
+    "services": {
+      "headline": "Start with the lawn problem. Quote the right fix.",
+      "body": "Every yard is different, so the services are organized around what you actually see: long grass, messy edges, leaves, seasonal cleanup, thin areas, or garden spots that need attention."
+    },
+    "about": {
+      "headline": "Built for Bradford lawns.",
+      "body": "The Lawn Guy Bradford is owner-led by Remy and focused on dependable mowing, clean details, and simple communication for Bradford West Gwillimbury homes."
+    },
+    "contact": {
+      "headline": "Text Remy for a quote.",
+      "body": "Send your address, what you need, and any photos that help show the yard. For first-time work, a quick in-person look helps keep the quote fair."
+    },
+    "quoteVisit": {
+      "headline": "Quotes happen after the yard is seen.",
+      "body": "Online prices can miss the details: access, slope, size, overgrowth, edges, cleanup, and what the customer actually wants. A short quote visit keeps the scope clearer."
+    }
+  },
+  "quoteHelper": {
+    "role": "Short quote helper that routes people to text or email rather than replacing Remy's quote process.",
+    "tone": "Warm, friendly, simple, and grade-6-readable.",
+    "shortFlowQuestions": [
+      {
+        "id": "location",
+        "question": "Is the property in Bradford/BWG?"
+      },
+      {
+        "id": "service_need",
+        "question": "What do you need help with?",
+        "options": [
+          "Mowing",
+          "Trimming/edging",
+          "Cleanup",
+          "Seeding/fertilizing",
+          "Garden maintenance",
+          "Not sure"
+        ]
+      },
+      {
+        "id": "cadence",
+        "question": "Is this weekly, biweekly, or one-time?"
+      },
+      {
+        "id": "yard_state",
+        "question": "Is the lawn normal, overgrown, or needing a full cleanup?"
+      },
+      {
+        "id": "contact_handoff",
+        "question": "Ask them to text Remy with their address and any photos."
+      }
+    ],
+    "handoffMessage": "Thanks. The best next step is to text Remy with your address, what you need, and a few yard photos if you have them. He will help book a quick look and give a clear quote.",
+    "guardrails": [
+      "Do not give instant prices.",
+      "Do not claim insurance.",
+      "Do not promise pesticide, herbicide, weed, grub, or pest treatments.",
+      "Do not pretend there are reviews before they exist.",
+      "If asked about unavailable services, say they can be discussed during a quote visit or may be added later."
+    ]
+  },
+  "visualAndInteractionSpec": {
+    "overallDirection": "High-tech yard app with warm local owner energy.",
+    "desktopPriority": "Desktop wow",
+    "mobilePriority": "Fast, readable, and still polished without heavy interaction.",
+    "interactiveHero": {
+      "concept": "Overgrown lawn transforms into clean cut lawn as the visitor scrolls, hovers, drags, or moves through the first viewport.",
+      "mustShow": [
+        "Clear grass-cut relationship within 3 seconds",
+        "The Lawn Guy Bradford name or TLG symbol",
+        "Primary CTA visible without clutter",
+        "Hint of next section below the fold"
+      ],
+      "avoid": [
+        "Generic gradient hero",
+        "Marketing-only landing page",
+        "Unclear abstract graphics",
+        "Dark or blurred stock visuals"
+      ]
+    },
+    "serviceScroll": {
+      "concept": "Problem-first service-by-service scroll with each service revealing before/after, included work, and when to quote.",
+      "order": [
+        "Overgrown or uneven grass",
+        "Messy edges",
+        "Leaves and yard debris",
+        "Seasonal reset",
+        "Thin or tired-looking lawn",
+        "Messy garden areas"
+      ]
+    },
+    "motionRules": [
+      "Make motion explain the service value.",
+      "Use reduced-motion alternatives.",
+      "Keep mobile interaction lighter.",
+      "Avoid decorative motion with no purpose.",
+      "Make buttons and text stable so motion does not cause layout shift."
+    ]
+  },
+  "seoSpec": {
+    "primaryKeywordThemes": [
+      "lawn care Bradford",
+      "lawn mowing Bradford Ontario",
+      "grass cutting Bradford",
+      "lawn maintenance Bradford West Gwillimbury",
+      "yard cleanup Bradford",
+      "leaf cleanup Bradford",
+      "seasonal cleanup Bradford"
+    ],
+    "titleTags": {
+      "home": "The Lawn Guy Bradford | Modern Lawn Care In Bradford",
+      "services": "Lawn Mowing & Yard Care Services In Bradford | The Lawn Guy",
+      "about": "About The Lawn Guy Bradford | Owner-Led Lawn Care",
+      "contact": "Text For A Lawn Care Quote In Bradford | The Lawn Guy",
+      "quoteVisit": "Lawn Care Quote Visits In Bradford | The Lawn Guy"
+    },
+    "metaDescriptions": {
+      "home": "Modern lawn care in Bradford/BWG by Remy. Mowing, trimming, edging, cleanups, and seasonal yard care with simple text-first quotes.",
+      "services": "See mowing, trimming, edging, cleanup, seeding, fertilizing, and light garden maintenance services for Bradford West Gwillimbury lawns.",
+      "about": "Meet Remy, the local owner behind The Lawn Guy Bradford, a mowing-first lawn care service focused on clean finishes and simple communication.",
+      "contact": "Text or email The Lawn Guy Bradford for a lawn care quote visit in Bradford West Gwillimbury.",
+      "quoteVisit": "Learn why The Lawn Guy Bradford quotes lawn care after seeing the yard, access, overgrowth, and cleanup needs."
+    },
+    "localBusinessNotes": [
+      "Create and complete Google Business Profile.",
+      "Use The Lawn Guy Bradford consistently.",
+      "Add real service photos as soon as possible.",
+      "Ask for reviews after strong visits.",
+      "Avoid listing unverified pesticide services on GBP."
+    ]
+  },
+  "implementationNotes": {
+    "recommendedFilesToUpdateLater": [
+      "Grass-server/src/defaults.ts",
+      "Grass-server/src/seed.ts",
+      "Grass-client/src/components/public/HomePage.tsx",
+      "Grass-client/src/components/public/PricingPage.tsx",
+      "Grass-client/src/components/public/PublicChrome.tsx",
+      "Grass-client/src/components/public/BusinessChat.tsx",
+      "Grass-client/src/app/services/*/page.tsx",
+      "Grass-client/src/app/company/pricing/page.tsx",
+      "Grass-client/src/app/pricing/page.tsx"
+    ],
+    "dataMapping": {
+      "siteSettings": "Maps to defaultSiteSettings and SiteSettings data.",
+      "contentCollections.nav-items": "Maps to ContentKind nav-items.",
+      "contentCollections.services": "Maps to ContentKind services.",
+      "contentCollections.add-ons": "Maps to ContentKind add-ons.",
+      "contentCollections.process-steps": "Maps to ContentKind process-steps.",
+      "contentCollections.benefits": "Maps to ContentKind benefits.",
+      "contentCollections.transformations": "Maps to ContentKind transformations.",
+      "contentCollections.seasons": "Maps to ContentKind seasons.",
+      "contentCollections.faqs": "Maps to ContentKind faqs.",
+      "contentCollections.cta-blocks": "Maps to ContentKind cta-blocks.",
+      "contentCollections.footer-groups": "Maps to ContentKind footer-groups."
+    },
+    "openItems": [
+      "Add Remy's public phone number.",
+      "Add real owner photo.",
+      "Replace mockup service images with permission-based Bradford yard photos.",
+      "Confirm insurance status before adding any insurance language.",
+      "Confirm Ontario pesticide/exterminator licensing before publishing weed, grub, or pest-treatment service pages."
+    ]
+  },
+  "sources": [
+    {
+      "name": "brand.json",
+      "url": "brand.json",
+      "usedFor": "Brand strategy source for website v2"
+    },
+    {
+      "name": "Ontario pesticide licences and permits",
+      "url": "https://www.ontario.ca/page/pesticide-licences-and-permits",
+      "usedFor": "Pesticide and herbicide service guardrails"
+    },
+    {
+      "name": "Town of Bradford West Gwillimbury Clean Yards By-law 2012-025",
+      "url": "https://www.townofbwg.com/en/town-hall/clean-yards-by-law-2012-025.aspx",
+      "usedFor": "Local lawn-height and clean-yard context"
+    },
+    {
+      "name": "Statistics Canada Census Profile, 2021 Census of Population",
+      "url": "https://www12.statcan.gc.ca/census-recensement/2021/dp-pd/prof/details/removegeo.cfm?DGUID=2021S051235430770&DGUIDlist=2021A00053543014%2C2021S051235430770&GENDERlist=1%2C2%2C3&HEADERlist=0&Lang=E&STATISTIClist=1&SearchText=Bradford+West+Gwillimbury",
+      "usedFor": "Local population and dwelling context"
+    }
+  ]
+}

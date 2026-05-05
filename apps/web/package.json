@@ -1,0 +1,38 @@
+{
+  "name": "@lawnguy/web",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "The Lawn Guy Bradford — Next.js 15 frontend.",
+  "scripts": {
+    "dev": "next dev --port 3000",
+    "dev:turbo": "next dev --port 3000 --turbopack",
+    "build": "next build",
+    "start": "next start --port 3000",
+    "lint": "next lint --max-warnings 0",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run --passWithNoTests",
+    "clean": "rimraf .next .next-dev .turbo tsconfig.tsbuildinfo"
+  },
+  "dependencies": {
+    "@lawnguy/brand": "workspace:*",
+    "framer-motion": "^11.13.0",
+    "lenis": "^1.1.20",
+    "lucide-react": "^0.469.0",
+    "next": "^15.1.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.0.0",
+    "@types/node": "^22.10.0",
+    "@types/react": "^19.0.1",
+    "@types/react-dom": "^19.0.1",
+    "eslint-config-next": "^15.1.0",
+    "rimraf": "^6.0.0",
+    "tailwindcss": "^4.0.0",
+    "typescript": "^5.6.3",
+    "vitest": "^2.1.5"
+  }
+}

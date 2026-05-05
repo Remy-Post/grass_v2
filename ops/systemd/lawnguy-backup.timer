@@ -1,0 +1,10 @@
+[Unit]
+Description=Run lawnguy-backup nightly at 03:00 local
+
+[Timer]
+OnCalendar=*-*-* 03:00:00
+Persistent=true
+RandomizedDelaySec=15min
+
+[Install]
+WantedBy=timers.target

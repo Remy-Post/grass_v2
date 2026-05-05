@@ -1,0 +1,59 @@
+# Dependencies
+node_modules/
+.pnpm-store/
+
+# Build outputs
+dist/
+.next/
+.next-dev/
+.turbo/
+out/
+build/
+
+# Coverage
+coverage/
+*.lcov
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+.codex-*.log
+.codex-*.err.log
+
+# Environment files
+.env
+.env.local
+.env.*.local
+!.env.example
+!.env.local.example
+
+# TypeScript
+*.tsbuildinfo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editors
+.vscode/*
+!.vscode/extensions.json
+.idea/
+
+# Testing
+/playwright-report/
+/playwright/.cache/
+/test-results/
+
+# Local Mongo data (if running outside container)
+/data/db/
+
+# Misc
+*.pid
+*.seed
+*.pid.lock
+.codex-reference-shots/
+.codex-smoke-shots/
+.codex-video-frames/

@@ -1,0 +1,638 @@
+{
+  "schemaVersion": "brand.v2",
+  "metadata": {
+    "project": "The Lawn Guy Bradford",
+    "brandName": "The Lawn Guy",
+    "publicName": "The Lawn Guy Bradford",
+    "ownerFirstName": "Remy",
+    "createdAt": "2026-05-04",
+    "status": "ready-for-v2-website-and-content-work",
+    "sourceSummary": "Built from the brand discovery conversation, current Grass project inspection, and focused local-market research.",
+    "pairedWebsiteFile": "website.json"
+  },
+  "brandCore": {
+    "name": "The Lawn Guy",
+    "localSearchName": "The Lawn Guy Bradford",
+    "tagline": "Clean Cuts. Better Lawns.",
+    "oneSentencePitch": "Modern lawn care in Bradford for homeowners who want a sharp, clean yard without making lawn work their problem.",
+    "positioningStatement": "The Lawn Guy Bradford is a Bradford/BWG-only lawn care service led by Remy, built around reliable mowing, clean finishing details, friendly communication, and simple quote visits.",
+    "mission": "Help busy local homeowners and property managers keep their lawns clean, sharp, and easy to enjoy.",
+    "vision": "Become the trusted local lawn person clients return to year after year for mowing-first yard care in Bradford West Gwillimbury.",
+    "brandPromise": "A clean finish, friendly service, and a simple path from first text to maintained lawn.",
+    "emotionalOutcome": "Come home proud.",
+    "memoryHook": "Quality, aesthetics, and customer service from a local owner who keeps the process simple."
+  },
+  "locationAndMarket": {
+    "primaryServiceArea": "Bradford West Gwillimbury, Ontario, Canada",
+    "serviceBoundary": "Bradford/BWG only at launch",
+    "localFacts": [
+      {
+        "fact": "Bradford West Gwillimbury had a 2021 Census population of 42,880 and 13,415 occupied private dwellings.",
+        "source": "Statistics Canada Census Profile, 2021"
+      },
+      {
+        "fact": "The Town of Bradford West Gwillimbury Clean Yards By-law requires weeds or turf grass over 20 cm / 7.8 inches to be trimmed or cut.",
+        "source": "Town of Bradford West Gwillimbury Clean Yards By-law 2012-025"
+      }
+    ],
+    "marketPattern": [
+      "Local competitors commonly emphasize reliability, professional care, free quotes, weekly mowing, fertilization, seasonal cleanups, insurance, and broad service areas.",
+      "Many competitors serve several nearby towns rather than Bradford only.",
+      "The clearest opening is a modern, personal, Bradford-only mowing-first brand with fast text communication and polished visual proof."
+    ],
+    "competitorReferences": [
+      {
+        "name": "Oak & Willow Property Maintenance",
+        "observedAngle": "Reliable mowing in Newmarket, Bradford, and East Gwillimbury; affordable professional care; free quote; insured positioning.",
+        "url": "https://www.oakandwillowpropertymaintenance.ca/lawn-mowing"
+      },
+      {
+        "name": "Easy Lawn Care",
+        "observedAngle": "Professional lawn maintenance in Bradford, Ontario.",
+        "url": "https://easelawncare.ca/"
+      },
+      {
+        "name": "Bradford Grass Cutting",
+        "observedAngle": "Professional lawn services, mowing, edging, trimming, garden-related services, and multiple service areas.",
+        "url": "https://bradfordgrasscutting.ca/garden-maintenance-services"
+      },
+      {
+        "name": "The Grounds Guys Bradford",
+        "observedAngle": "Complete lawn care, mowing, edging, seasonal fertilizer, weed control, and large-company expertise.",
+        "url": "https://www.groundsguys.ca/locations/ontario/bradford/lawn-care/"
+      },
+      {
+        "name": "Green Apple Property Maintenance",
+        "observedAngle": "Lawn care experts serving multiple nearby areas with a broad property-maintenance menu.",
+        "url": "https://greenapplepm.ca/"
+      },
+      {
+        "name": "Bradford Lawn Maintenance",
+        "observedAngle": "Grass cutting, lawn mowing, fertilization, aeration, and landscape maintenance for Newmarket, Bradford, and Aurora.",
+        "url": "https://bradfordlawn.com/"
+      }
+    ]
+  },
+  "audience": {
+    "primaryAudience": [
+      "Busy homeowners in Bradford/BWG",
+      "Property managers with lawn maintenance needs",
+      "Adults who do not have the time, ability, interest, or equipment for yard work"
+    ],
+    "secondaryAudience": [
+      "People with overgrown or neglected lawns",
+      "People physically challenged by yard work",
+      "Homeowners unhappy with their current lawn-care provider",
+      "Residents who want help before grass or weeds become a by-law issue"
+    ],
+    "customerPriorities": [
+      "Price",
+      "Quality",
+      "Flexibility",
+      "Customer service",
+      "Trust",
+      "Clean visual results"
+    ],
+    "painPoints": [
+      "Overgrown grass",
+      "Messy edges",
+      "Ugly or neglected lawns",
+      "Weeds, grubs, and lawn-health concerns",
+      "Lack of time",
+      "Dislike of yard work",
+      "Uncertainty about who to trust"
+    ],
+    "secretHopes": [
+      "They want to arrive home and feel relieved by a clean yard.",
+      "They want the lawn to look cared for without needing to think about every detail.",
+      "They want simple communication and no confusing sales process."
+    ],
+    "likelyObjections": [
+      "Price",
+      "Quality consistency",
+      "Business trust and proof",
+      "Remy's age",
+      "Equipment or product questions",
+      "Service timing",
+      "No public review base at launch"
+    ],
+    "whereToReachThem": [
+      "Google Business Profile",
+      "Local Google search results",
+      "Flyers and cards in Bradford neighbourhoods",
+      "Neighbourhood Facebook groups",
+      "Word of mouth after great visits",
+      "Yard signs, when budget allows"
+    ],
+    "languageStyle": {
+      "readingLevel": "Grade 6 friendly",
+      "customerLanguage": [
+        "grass cutting",
+        "lawn mowing",
+        "yard cleanup",
+        "trim the edges",
+        "weekly cut",
+        "biweekly cut",
+        "overgrown lawn",
+        "quote",
+        "text me"
+      ],
+      "avoidOverlyTechnicalLanguage": true
+    }
+  },
+  "offerStrategy": {
+    "businessType": "In-person local service",
+    "launchFocus": "Recurring mowing clients first",
+    "seasonOneGoal": "5-10 recurring mowing clients",
+    "serviceCadence": [
+      "Weekly",
+      "Biweekly",
+      "As-needed"
+    ],
+    "defaultMowStandard": {
+      "included": [
+        "Cut",
+        "Trim",
+        "Blow hard surfaces clean",
+        "Mulch clippings by default",
+        "Quick quality check before leaving when possible"
+      ],
+      "fallback": "48-hour fix window when a legitimate issue is raised after the visit"
+    },
+    "activeLaunchServices": [
+      {
+        "name": "Lawn mowing",
+        "role": "Core service",
+        "notes": "The most important offer and the recurring revenue base."
+      },
+      {
+        "name": "Trimming and edging",
+        "role": "Core finish detail",
+        "notes": "Usually bundled with mowing as part of the clean finish."
+      },
+      {
+        "name": "Leaf cleanup",
+        "role": "Seasonal add-on",
+        "notes": "Promote in fall and for neglected yards."
+      },
+      {
+        "name": "Seasonal cleanup",
+        "role": "Spring/fall reset",
+        "notes": "Good for one-off clients and future mowing conversion."
+      },
+      {
+        "name": "Seeding and fertilizing",
+        "role": "Lawn-health add-on",
+        "notes": "Position as lawn improvement and seasonal care, with product use following label and legal requirements."
+      },
+      {
+        "name": "Garden maintenance",
+        "role": "Optional add-on",
+        "notes": "Light garden upkeep only; avoid sounding like full landscaping."
+      }
+    ],
+    "conditionalOrHiddenServices": [
+      {
+        "name": "Pesticide-style weed control",
+        "status": "hide-until-licensed-or-legally-verified",
+        "reason": "Ontario commercial pesticide application has licensing requirements unless an exemption clearly applies."
+      },
+      {
+        "name": "Grub and pest control",
+        "status": "hide-until-licensed-or-legally-verified",
+        "reason": "Pest-control treatments can trigger the same commercial pesticide/exterminator rules."
+      },
+      {
+        "name": "Major landscaping",
+        "status": "out-of-scope",
+        "reason": "The brand should not sound like a full landscaping company at launch."
+      },
+      {
+        "name": "Snow or winter service",
+        "status": "out-of-scope-for-v2",
+        "reason": "The chosen seasonal scope is spring, summer, and fall."
+      }
+    ],
+    "quoteModel": {
+      "publicPricing": "No public price list at launch",
+      "firstAppointmentQuote": "Verbal quote during the visit plus text summary afterward",
+      "futureQuoteDelivery": "Text summary with scope and price",
+      "quoteTiming": "Evenings and weekends preferred",
+      "paymentPreference": "E-transfer"
+    },
+    "customerResponsibilities": [
+      "Clear pet waste before service.",
+      "Provide access instructions if gates or locked areas are involved.",
+      "Tell Remy about hazards, hidden obstacles, or sensitive areas."
+    ],
+    "weatherPolicy": "If rain or unsafe lawn conditions make service a poor idea, reschedule soon instead of forcing a bad cut.",
+    "overgrownPolicy": "Overgrown lawns are quoted separately."
+  },
+  "positioning": {
+    "category": "Local lawn care and lawn mowing",
+    "spaceToOwn": "Modern lawn care in Bradford",
+    "competitiveBasis": [
+      "Quality",
+      "Clean visual finish",
+      "Friendly owner-led service",
+      "Competitive pricing without sounding cheap",
+      "Bradford-only focus",
+      "Simple text-first communication"
+    ],
+    "fitOrDisrupt": "Fit the lawn-care category while making the website and customer experience feel more modern than the local norm.",
+    "doCompareTo": [
+      "A reliable local lawn person",
+      "A polished digital-first local service",
+      "A clean, simple mowing and yard-care provider"
+    ],
+    "doNotCompareTo": [
+      "A marketplace with crews",
+      "A franchise",
+      "A discount grass cutter",
+      "A full landscaping company",
+      "An instant-price app"
+    ],
+    "reasonToChooseNow": "The yard needs care now, Remy serves Bradford directly, and the quote process is simple: text, visit, clear scope, clean finish."
+  },
+  "personality": {
+    "traits": [
+      "Welcoming",
+      "Caring",
+      "Simple",
+      "Tidy",
+      "Clean",
+      "Warm",
+      "Ambitious",
+      "Practical",
+      "Helpful",
+      "Modern"
+    ],
+    "toneSpectrum": {
+      "casualFormal": "Casual but polished",
+      "minimalExpressive": "Minimal with visual energy",
+      "friendlyAuthoritative": "Friendly first, competent second",
+      "modernTimeless": "Modern",
+      "softSharp": "Sharp",
+      "nicheBroad": "Broad and accessible"
+    },
+    "avoidTraits": [
+      "Overwhelming",
+      "Stressful",
+      "Unclear",
+      "Negative",
+      "Disrespectful",
+      "Cheap-sounding",
+      "Too corporate",
+      "Too childish"
+    ]
+  },
+  "voiceAndMessaging": {
+    "voice": "Simple premium",
+    "pointOfView": "First person owner-led where helpful: I, me, my, Remy.",
+    "readingLevel": "Grade 6 friendly",
+    "sound": [
+      "Polished",
+      "Warm",
+      "Direct",
+      "Confident",
+      "Easy to understand"
+    ],
+    "homepageHeadline": "Modern Lawn Care In Bradford",
+    "homepageSupport": "Sharp cuts, clean edges, and simple quote visits for Bradford lawns that need a better finish.",
+    "primaryCta": "Text For A Quote",
+    "secondaryCta": "See Services",
+    "messagePillars": [
+      {
+        "pillar": "Easy lawn care",
+        "meaning": "The customer should feel the job is handled without friction.",
+        "sampleCopy": "Text me, show me the yard, and I will give you a clear quote."
+      },
+      {
+        "pillar": "Clean finish",
+        "meaning": "Quality is shown through cut lines, edges, cleanup, and respect for the property.",
+        "sampleCopy": "Cut, trim, blow, and check the finish before I leave."
+      },
+      {
+        "pillar": "Bradford local",
+        "meaning": "The service area is narrow on purpose.",
+        "sampleCopy": "Built for Bradford lawns, not a giant service map."
+      },
+      {
+        "pillar": "Modern and personal",
+        "meaning": "The brand feels polished online but human in communication.",
+        "sampleCopy": "A clean modern site, a real local owner, and simple text updates."
+      }
+    ],
+    "onBrandPhrases": [
+      "Clean cuts",
+      "Better lawns",
+      "Modern lawn care in Bradford",
+      "Come home proud",
+      "A cleaner finish",
+      "Sharp edges",
+      "Simple quote visit",
+      "Bradford/BWG only",
+      "Text for a quote",
+      "Cut, trim, blow"
+    ],
+    "avoidPhrases": [
+      "Cheap",
+      "Bargain",
+      "Lowest price",
+      "Instant guaranteed price",
+      "Fully insured",
+      "Licensed pesticide applicator",
+      "Crew",
+      "Platform",
+      "Pros near you",
+      "No questions asked",
+      "Perfect lawn guaranteed",
+      "Pest control guaranteed"
+    ],
+    "copyRules": [
+      "Use short sentences.",
+      "Prefer concrete service language over vague claims.",
+      "Do not overload visitors with technical lawn-care details.",
+      "Do not claim insurance, reviews, licensing, or guarantees that are not true yet.",
+      "Do not lead with age; use age only in the owner story if it helps make the brand human.",
+      "Treat early visuals as mockups or examples until real client photos exist."
+    ]
+  },
+  "visualIdentity": {
+    "direction": "Turf + Charcoal with high-tech yard app polish",
+    "styleKeywords": [
+      "Clean",
+      "Modern",
+      "Earthy",
+      "Interactive",
+      "Sharp",
+      "Minimal",
+      "Graphic-heavy but uncluttered"
+    ],
+    "palette": {
+      "brandGreen": {
+        "hex": "#1f5a3a",
+        "role": "Primary brand action color"
+      },
+      "brandDark": {
+        "hex": "#163f29",
+        "role": "Deep green for contrast and symbol work"
+      },
+      "grass": {
+        "hex": "#7cb342",
+        "role": "Lawn energy, motion, and before/after visuals"
+      },
+      "sunAccent": {
+        "hex": "#f5c518",
+        "role": "Small highlights only; quote buttons, progress, and attention points"
+      },
+      "warmBackground": {
+        "hex": "#f7f6f1",
+        "role": "Primary light background"
+      },
+      "surface": {
+        "hex": "#ffffff",
+        "role": "Cards, forms, modals, and clean content surfaces"
+      },
+      "surfaceAlt": {
+        "hex": "#efeee7",
+        "role": "Section contrast"
+      },
+      "charcoal": {
+        "hex": "#1a1f1a",
+        "role": "Primary text and premium depth"
+      },
+      "softInk": {
+        "hex": "#4a534a",
+        "role": "Secondary text"
+      },
+      "mutedInk": {
+        "hex": "#7a807a",
+        "role": "Small UI notes"
+      },
+      "line": {
+        "hex": "#e2e0d6",
+        "role": "Borders and dividers"
+      }
+    },
+    "typography": {
+      "primary": "Geist or a similar clean sans-serif",
+      "accent": "Fraunces or another organic editorial accent",
+      "guidance": "Use clean sans for most UI and copy. Use the accent font for selected headlines, not long paragraphs. Avoid hard-to-read handwritten type in functional areas."
+    },
+    "logoDirection": {
+      "type": "Symbol",
+      "concept": "TLG grass-cut monogram",
+      "feel": "Clean vector icon, modern and local, with cut-line or blade-like negative space.",
+      "usage": [
+        "Website header",
+        "Favicon",
+        "Google Business Profile",
+        "Cards and flyers",
+        "Owner photo overlay or watermark"
+      ]
+    },
+    "imagery": {
+      "firstVisual": "Interactive lawn hero",
+      "style": "Clear before/after lawn visuals, service-detail graphics, close crops of clean edges, and owner-led local proof.",
+      "rules": [
+        "Use real photos as soon as possible.",
+        "Customer yard photos require permission and should not reveal addresses.",
+        "Mockups are acceptable before proof exists but should not pretend to be completed client work.",
+        "Avoid dark, blurry, generic stock-style lawns when a visitor needs to inspect the result."
+      ]
+    },
+    "motion": {
+      "level": "Showpiece on desktop, lighter on mobile",
+      "principles": [
+        "Motion should reveal service value, not decorate randomly.",
+        "Use scroll and pointer interaction to show before/after transformation, cut lines, and service progression.",
+        "Respect reduced-motion settings."
+      ]
+    }
+  },
+  "experience": {
+    "before": "The customer feels overwhelmed or unsatisfied by their current lawn.",
+    "during": "The customer feels confident, comfortable, and clear on what is happening.",
+    "after": "The customer feels pleased, satisfied, and proud to come home.",
+    "importantTouchpoints": [
+      "Website",
+      "Text conversation",
+      "Quote visit",
+      "Service visit",
+      "Customer support",
+      "Follow-up review ask"
+    ],
+    "buyingExperience": "Text-first, short, personal, and clear. The website warms the lead, then the quote visit closes the details.",
+    "supportExperience": "Friendly, calm, and practical. A quote-helper chatbot can collect basics, but real quote handoff should push to text or email.",
+    "memorableDetails": [
+      "Interactive lawn hero",
+      "Problem-first service scroll",
+      "Owner note from Remy",
+      "Before/after visual proof",
+      "Cut + trim + blow standard",
+      "48-hour fix fallback"
+    ]
+  },
+  "contentAndCommunity": {
+    "primaryPlatform": "Website",
+    "launchMarketingChannels": [
+      "Google Business Profile",
+      "Flyers/cards",
+      "Local word of mouth"
+    ],
+    "topicsToCover": [
+      "Mowing basics",
+      "How often to cut",
+      "Why edges matter",
+      "Spring cleanup",
+      "Fall leaf cleanup",
+      "How to prepare for a visit",
+      "Simple lawn tips",
+      "Before/after service walkthroughs"
+    ],
+    "topicsToAvoid": [
+      "Irrelevant topics outside lawn and light yard care",
+      "Unlicensed pesticide-treatment promises",
+      "Major landscaping claims",
+      "Overly technical chemical explanations",
+      "Discount-heavy promotions"
+    ],
+    "contentFormat": [
+      "Short videos",
+      "Service walkthroughs",
+      "Before/after posts",
+      "Simple tips",
+      "Owner updates from Remy"
+    ],
+    "community": {
+      "buildCommunityNow": false,
+      "futureCommunityTheme": "People who care about clean, better-looking yards in Bradford."
+    }
+  },
+  "trustAndProof": {
+    "launchProof": [
+      "3 years of service experience",
+      "Owner story",
+      "Clear service standards",
+      "Visual mockups until real proof exists",
+      "Permission-based before/after photos as soon as possible"
+    ],
+    "doNotClaimYet": [
+      "Insurance",
+      "Licensed pesticide application",
+      "Large team",
+      "Verified reviews",
+      "Instant pricing",
+      "Guaranteed perfect results"
+    ],
+    "reviewStrategy": "Ask for a review after a great visit, not before trust is earned.",
+    "photoPolicy": "Ask permission before using yard photos and avoid showing addresses."
+  },
+  "values": {
+    "nonNegotiables": [
+      "Quality",
+      "Competitive pricing",
+      "Customer service",
+      "Reliability",
+      "Respect",
+      "Trust"
+    ],
+    "qualityDefinition": "High standards throughout the project, with visible care in the cut, edges, cleanup, communication, and final check.",
+    "authenticityDefinition": "Be real about the business stage, the owner, the service area, and what is or is not offered.",
+    "offBrandBehavior": [
+      "Disrespect",
+      "Dishonesty",
+      "Low-quality work",
+      "Messy communication",
+      "Overpromising",
+      "Pressuring customers"
+    ]
+  },
+  "complianceGuardrails": {
+    "pesticideAndHerbicideRule": "Do not advertise paid pesticide, herbicide, weed-control, grub-control, or pest-control treatment unless the required Ontario licensing and product-label requirements are confirmed.",
+    "fiestaHerbicideNote": "Fiesta Herbicide should be treated as a regulated pesticide/herbicide context for commercial service copy. Owning the product is not enough to make paid commercial application claims safe.",
+    "allowedLaunchWording": [
+      "Lawn-health review",
+      "Weed concerns can be discussed during the quote visit",
+      "Seeding and fertilizing available where appropriate",
+      "Lawn improvement services are quoted after seeing the yard"
+    ],
+    "disallowedLaunchWording": [
+      "Licensed weed control",
+      "We spray weeds",
+      "Grub control available now",
+      "Pest control treatments",
+      "Safe for kids and pets after 1 hour",
+      "Commercial herbicide application"
+    ],
+    "source": "Ontario pesticide licences and permits"
+  },
+  "practicalConstraints": {
+    "budget": "$500",
+    "recommendedBudgetUse": [
+      "Cards/flyers",
+      "Basic Google Business Profile setup",
+      "Simple logo/icon polish",
+      "Early photo/content capture"
+    ],
+    "existingAssets": [
+      "Lawn mower",
+      "Trimmer/weed whacker",
+      "Gardening tools",
+      "Seed",
+      "Fertilizer",
+      "Weed-control product already purchased",
+      "Prototype website files in C:/Users/debbi/Downloads/Grass"
+    ],
+    "approver": "Remy",
+    "timeline": "Customer-driven; website should be ready to support incoming quote requests."
+  },
+  "sources": [
+    {
+      "name": "Ontario pesticide licences and permits",
+      "url": "https://www.ontario.ca/page/pesticide-licences-and-permits",
+      "usedFor": "Commercial pesticide licensing guardrail"
+    },
+    {
+      "name": "Town of Bradford West Gwillimbury Clean Yards By-law 2012-025",
+      "url": "https://www.townofbwg.com/en/town-hall/clean-yards-by-law-2012-025.aspx",
+      "usedFor": "Local lawn-height and clean-yard context"
+    },
+    {
+      "name": "Statistics Canada Census Profile, 2021 Census of Population",
+      "url": "https://www12.statcan.gc.ca/census-recensement/2021/dp-pd/prof/details/removegeo.cfm?DGUID=2021S051235430770&DGUIDlist=2021A00053543014%2C2021S051235430770&GENDERlist=1%2C2%2C3&HEADERlist=0&Lang=E&STATISTIClist=1&SearchText=Bradford+West+Gwillimbury",
+      "usedFor": "Population and dwelling context"
+    },
+    {
+      "name": "Oak & Willow Property Maintenance",
+      "url": "https://www.oakandwillowpropertymaintenance.ca/lawn-mowing",
+      "usedFor": "Local competitor messaging pattern"
+    },
+    {
+      "name": "Easy Lawn Care",
+      "url": "https://easelawncare.ca/",
+      "usedFor": "Local competitor messaging pattern"
+    },
+    {
+      "name": "Bradford Grass Cutting",
+      "url": "https://bradfordgrasscutting.ca/garden-maintenance-services",
+      "usedFor": "Local competitor messaging pattern"
+    },
+    {
+      "name": "The Grounds Guys Bradford",
+      "url": "https://www.groundsguys.ca/locations/ontario/bradford/lawn-care/",
+      "usedFor": "Local competitor messaging pattern"
+    },
+    {
+      "name": "Green Apple Property Maintenance",
+      "url": "https://greenapplepm.ca/",
+      "usedFor": "Local competitor messaging pattern"
+    },
+    {
+      "name": "Bradford Lawn Maintenance",
+      "url": "https://bradfordlawn.com/",
+      "usedFor": "Local competitor messaging pattern"
+    }
+  ]
+}
