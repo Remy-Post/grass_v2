@@ -41,6 +41,9 @@ Thumbs.db
 !.vscode/extensions.json
 .idea/
 
+# Claude Code (worktrees, plans, settings — local agent state, not part of repo)
+.claude/
+
 # Testing
 /playwright-report/
 /playwright/.cache/
