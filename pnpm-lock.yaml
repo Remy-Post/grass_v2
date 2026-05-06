@@ -154,9 +154,6 @@ importers:
 
   packages/brand:
     dependencies:
-      lucide-react:
-        specifier: ^0.469.0
-        version: 0.469.0(react@19.2.5)
       react:
         specifier: ^19.0.0
         version: 19.2.5
@@ -167,6 +164,12 @@ importers:
       '@types/node':
         specifier: ^22.10.0
         version: 22.19.17
+      '@types/react':
+        specifier: ^19.0.0
+        version: 19.2.14
+      lucide-react:
+        specifier: ^0.469.0
+        version: 0.469.0(react@19.2.5)
       rimraf:
         specifier: ^6.0.0
         version: 6.1.3
