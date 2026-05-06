@@ -15,7 +15,7 @@ const fraunces = Fraunces({
   display: 'swap',
 });
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://thelawnguybradford.ca';
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://lawnguybradford.ca';
 const BRAND_LOGO = {
   url: '/images/lawnguy-logo-full-transparent.webp',
   width: 1128,

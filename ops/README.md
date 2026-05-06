@@ -1,6 +1,6 @@
 # Deploying The Lawn Guy Bradford to DigitalOcean
 
-End-to-end guide for putting the site on a DigitalOcean Droplet at **thelawnguybradford.ca**.
+End-to-end guide for putting the site on a DigitalOcean Droplet at **lawnguybradford.ca**.
 
 **Recommended droplet:** Basic Regular, **4 GB / 2 vCPU / 80 GB SSD**, **TOR1 (Toronto)**, Ubuntu 24.04 LTS x86_64. ~$24/mo + ~$4.80/mo for weekly auto-snapshots + $5/mo for Spaces (offsite backup) = **~$33.80/mo**.
 
@@ -12,7 +12,7 @@ The scripts here are hosting-agnostic — they also work on an OCI Always-Free A
 
 - A DigitalOcean account.
 - An SSH key pair on your local machine (`ssh-keygen -t ed25519` if you don't have one) — paste the `.pub` contents into the droplet creation form.
-- A registered domain (`thelawnguybradford.ca`) where you can edit DNS or change nameservers.
+- A registered domain (`lawnguybradford.ca`) where you can edit DNS or change nameservers.
 - A Gmail app password ready (for sending lead emails — not your account password).
 - A DO Spaces bucket in **TOR1** named `tlg-backups` (or whatever you want — match the `DO_SPACES_BUCKET` env on the backup unit). Generate a Spaces access key/secret in DO panel → API → Spaces Keys.
 - Optional: OpenAI / Gemini API keys.
@@ -76,7 +76,7 @@ These are **secrets** — never commit them. Both files should be `chmod 600` an
 ```bash
 NODE_ENV=production
 PORT=3001
-CORS_ORIGIN=https://thelawnguybradford.ca
+CORS_ORIGIN=https://lawnguybradford.ca
 
 MONGO_URI=mongodb://127.0.0.1:27017/lawnguy
 ADMIN_TOKEN=<generate a long random string — `openssl rand -hex 32`>
@@ -99,7 +99,7 @@ OWNER_SMS_HREF=sms:+1...
 **`/srv/lawnguy/apps/web/.env.local`** — copy from `apps/web/.env.local.example` and fill in:
 
 ```bash
-NEXT_PUBLIC_SITE_URL=https://thelawnguybradford.ca
+NEXT_PUBLIC_SITE_URL=https://lawnguybradford.ca
 NEXT_PUBLIC_API_BASE_URL=          # empty in prod — same-origin via Nginx
 API_BASE_URL=http://127.0.0.1:3001 # internal API URL for SSR
 ADMIN_TOKEN=<must match apps/api/.env ADMIN_TOKEN>
@@ -161,7 +161,7 @@ At this point both processes are up but nothing is reachable from the public IP 
 
 Two options — pick one:
 
-**Option A: DigitalOcean DNS (simplest).** In DO panel → Networking → Domains, add `thelawnguybradford.ca`. Add records:
+**Option A: DigitalOcean DNS (simplest).** In DO panel → Networking → Domains, add `lawnguybradford.ca`. Add records:
 
 ```
 A     @     <droplet IP>   TTL 300
@@ -172,7 +172,7 @@ Then at your registrar, change nameservers to `ns1.digitalocean.com`, `ns2.digit
 
 **Option B: Keep your registrar's DNS.** Add the same two A records there.
 
-Wait until `Resolve-DnsName thelawnguybradford.ca` (PowerShell) or `dig thelawnguybradford.ca +short` (Bash) returns the droplet IP. Usually a few minutes; can take up to an hour after a nameserver change.
+Wait until `Resolve-DnsName lawnguybradford.ca` (PowerShell) or `dig lawnguybradford.ca +short` (Bash) returns the droplet IP. Usually a few minutes; can take up to an hour after a nameserver change.
 
 ---
 
@@ -184,11 +184,11 @@ sudo /srv/lawnguy/ops/scripts/install-ssl.sh
 
 Certbot will:
 - Copy `ops/nginx/lawnguy.conf` to `/etc/nginx/sites-available/`
-- Issue a Let's Encrypt cert for `thelawnguybradford.ca` and `www.thelawnguybradford.ca`
+- Issue a Let's Encrypt cert for `lawnguybradford.ca` and `www.lawnguybradford.ca`
 - Edit the Nginx config to add the SSL listener and HTTP → HTTPS redirect
 - Set up auto-renewal via `certbot.timer`
 
-Open `https://thelawnguybradford.ca/` — should serve the home page.
+Open `https://lawnguybradford.ca/` — should serve the home page.
 
 ---
 
@@ -196,16 +196,16 @@ Open `https://thelawnguybradford.ca/` — should serve the home page.
 
 | Check | Command |
 |---|---|
-| API health | `curl https://thelawnguybradford.ca/api/health` |
-| Public homepage data | `curl https://thelawnguybradford.ca/api/public/homepage \| jq '.content \| keys'` |
-| Admin gate (no token) | `curl -i https://thelawnguybradford.ca/api/admin/leads` → 401 |
-| Admin gate (with token) | `curl -H "Authorization: Bearer <ADMIN_TOKEN>" https://thelawnguybradford.ca/api/admin/leads` → 200 |
+| API health | `curl https://lawnguybradford.ca/api/health` |
+| Public homepage data | `curl https://lawnguybradford.ca/api/public/homepage \| jq '.content \| keys'` |
+| Admin gate (no token) | `curl -i https://lawnguybradford.ca/api/admin/leads` → 401 |
+| Admin gate (with token) | `curl -H "Authorization: Bearer <ADMIN_TOKEN>" https://lawnguybradford.ca/api/admin/leads` → 200 |
 | Services up | `systemctl is-active lawnguy-api lawnguy-web mongod nginx` |
 | Backup timer schedule | `systemctl list-timers \| grep lawnguy` |
 | Force a backup now | `sudo systemctl start lawnguy-backup.service`, then check `/var/backups/lawnguy/` AND `s3://tlg-backups/lawnguy/` (DO panel) |
 | UFW status | `ufw status` → only 22, 80, 443 |
 | Reboot survives | `sudo reboot` then re-check above |
-| SSL grade | <https://www.ssllabs.com/ssltest/analyze.html?d=thelawnguybradford.ca> |
+| SSL grade | <https://www.ssllabs.com/ssltest/analyze.html?d=lawnguybradford.ca> |
 
 ---
 

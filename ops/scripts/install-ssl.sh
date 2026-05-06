@@ -11,7 +11,7 @@ if [[ "${EUID}" -ne 0 ]]; then
 fi
 
 INSTALL_ROOT="${INSTALL_ROOT:-/srv/lawnguy}"
-DOMAIN="${DOMAIN:-thelawnguybradford.ca}"
+DOMAIN="${DOMAIN:-lawnguybradford.ca}"
 EMAIL="${EMAIL:-remy.post.06@gmail.com}"
 
 # Copy the Nginx site config and enable it

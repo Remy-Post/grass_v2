@@ -132,7 +132,7 @@ cat <<EOF
     4. Install systemd services:
          sudo ${INSTALL_ROOT}/ops/scripts/install-systemd.sh
 
-    5. Configure DNS to point thelawnguybradford.ca → this VM's public IP.
+    5. Configure DNS to point lawnguybradford.ca → this VM's public IP.
        Wait for propagation (a few minutes).
 
     6. Issue SSL cert and enable Nginx site:
