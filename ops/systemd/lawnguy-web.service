@@ -9,7 +9,7 @@ User=lawnguy
 Group=lawnguy
 WorkingDirectory=/srv/lawnguy/apps/web
 EnvironmentFile=/srv/lawnguy/apps/web/.env.local
-ExecStart=/usr/bin/pnpm start
+ExecStart=/srv/lawnguy/apps/web/node_modules/.bin/next start --port 3000
 Restart=always
 RestartSec=3
 StandardOutput=journal
@@ -22,7 +22,7 @@ ProtectSystem=strict
 ProtectHome=true
 ReadWritePaths=/srv/lawnguy/apps/web/.next /var/log/lawnguy
 
-# Resource limits — generous on 24GB Ampere
+# Resource limits
 LimitNOFILE=4096
 MemoryMax=1G
 

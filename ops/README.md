@@ -220,10 +220,10 @@ git push   # to your remote
 On the droplet:
 
 ```bash
-sudo -u lawnguy /srv/lawnguy/ops/scripts/deploy.sh
+sudo /srv/lawnguy/ops/scripts/deploy.sh
 
 # If website.json or brand.json changed:
-sudo -u lawnguy /srv/lawnguy/ops/scripts/deploy.sh --seed
+sudo /srv/lawnguy/ops/scripts/deploy.sh --seed
 ```
 
 ---
