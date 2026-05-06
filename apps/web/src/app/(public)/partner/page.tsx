@@ -23,11 +23,11 @@ type Contributor = {
 
 const contributors: Contributor[] = [
   {
-    name: 'Alyssa',
+    name: 'Alexander',
     role: 'Design Support',
     contribution: 'Logo and brand image creation',
     appreciation:
-      'Alyssa, thank you for helping give The Lawn Guy Bradford a visual identity people can recognize quickly. The logo and brand image work gave the site its first real sense of personality, polish, and confidence.',
+      'Alexander, thank you for helping give The Lawn Guy Bradford a visual identity people can recognize quickly. The logo and brand image work gave the site its first real sense of personality, polish, and confidence.',
     references: {
       LinkedIn: 'https://www.linkedin.com/in/alexander-pinnell-209878328/',
     },
