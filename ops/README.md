@@ -1,53 +1,73 @@
-# Deploying The Lawn Guy Bradford to OCI
+# Deploying The Lawn Guy Bradford to DigitalOcean
 
-End-to-end guide for putting the site on an Oracle Cloud Always-Free **Ampere A1** VM at **thelawnguybradford.ca**.
+End-to-end guide for putting the site on a DigitalOcean Droplet at **thelawnguybradford.ca**.
+
+**Recommended droplet:** Basic Regular, **4 GB / 2 vCPU / 80 GB SSD**, **TOR1 (Toronto)**, Ubuntu 24.04 LTS x86_64. ~$24/mo + ~$4.80/mo for weekly auto-snapshots + $5/mo for Spaces (offsite backup) = **~$33.80/mo**.
+
+The scripts here are hosting-agnostic — they also work on an OCI Always-Free Ampere A1 ARM VM with no edits (the MongoDB apt source declares both `amd64` and `arm64`).
 
 ---
 
 ## 0. Prereqs (one-time)
 
-- An OCI account with the Always-Free Ampere A1 instance provisioned (Ubuntu 22.04 or 24.04 LTS, ARM64).
-- SSH access to the VM (key-based — no passwords).
-- A registered domain (`thelawnguybradford.ca`) where you can edit DNS.
+- A DigitalOcean account.
+- An SSH key pair on your local machine (`ssh-keygen -t ed25519` if you don't have one) — paste the `.pub` contents into the droplet creation form.
+- A registered domain (`thelawnguybradford.ca`) where you can edit DNS or change nameservers.
 - A Gmail app password ready (for sending lead emails — not your account password).
+- A DO Spaces bucket in **TOR1** named `tlg-backups` (or whatever you want — match the `DO_SPACES_BUCKET` env on the backup unit). Generate a Spaces access key/secret in DO panel → API → Spaces Keys.
 - Optional: OpenAI / Gemini API keys.
 
-Open the OCI security list / VCN to allow inbound TCP **80** and **443** in addition to **22**. UFW inside the VM will mirror this.
+UFW inside the VM opens **22, 80, 443**. Nothing else needs to be opened on the DO side — droplets don't have a separate cloud firewall by default.
 
 ---
 
-## 1. Bootstrap the VM
+## 1. Provision the droplet
 
-Copy `ops/scripts/bootstrap-vm.sh` onto the VM and run it as root. Easiest way:
+DO control panel → Create → Droplets:
+
+- **Image:** Ubuntu 24.04 (LTS) x64
+- **Plan:** Basic → Regular Intel/SSD → **$24/mo (4 GB / 2 vCPU / 80 GB)**
+- **Region:** TOR1 (Toronto)
+- **Authentication:** SSH Key — paste your `~/.ssh/id_ed25519.pub`
+- **Hostname:** `lawnguy-prod`
+- **Backups:** ON (recommended — adds ~$4.80/mo for weekly snapshots)
+
+Hit Create. After ~30 seconds the droplet has a public IP — copy it.
+
+---
+
+## 2. Bootstrap the droplet
+
+DO Ubuntu droplets ship with `root` enabled by default. From PowerShell or a Bash terminal on your laptop:
 
 ```bash
-# From your laptop
-scp ops/scripts/bootstrap-vm.sh ubuntu@<VM_IP>:~/
-ssh ubuntu@<VM_IP> "sudo bash ~/bootstrap-vm.sh"
+DROPLET_IP=<paste from DO panel>
+scp ops/scripts/bootstrap-vm.sh root@${DROPLET_IP}:~/
+ssh root@${DROPLET_IP} "bash ~/bootstrap-vm.sh"
 ```
 
-This installs Node 22, pnpm 9, MongoDB 7, Nginx, certbot, creates the `lawnguy` user, and configures UFW.
+This installs Node 22, pnpm 9, MongoDB 7, Nginx, certbot, **s3cmd**, creates the `lawnguy` user, and configures UFW.
 
 ---
 
-## 2. Get the repo onto the VM
+## 3. Get the repo onto the droplet
 
 ```bash
-ssh ubuntu@<VM_IP>
+ssh root@${DROPLET_IP}
 
-# Option A: clone from your remote (recommended)
+# Option A: clone from your remote (recommended — `deploy.sh` later does git pull)
 sudo -u lawnguy git clone https://github.com/<you>/TheLawnGuyBradford-v2.git /srv/lawnguy
 
 # Option B: rsync from your laptop
 # (run this on your laptop)
 rsync -avz --exclude=node_modules --exclude=.next --exclude=.turbo \
-  ./ ubuntu@<VM_IP>:/tmp/lawnguy/
-ssh ubuntu@<VM_IP> "sudo rsync -a /tmp/lawnguy/ /srv/lawnguy/ && sudo chown -R lawnguy:lawnguy /srv/lawnguy"
+  ./ root@${DROPLET_IP}:/tmp/lawnguy/
+ssh root@${DROPLET_IP} "rsync -a /tmp/lawnguy/ /srv/lawnguy/ && chown -R lawnguy:lawnguy /srv/lawnguy"
 ```
 
 ---
 
-## 3. Create env files
+## 4. Create env files
 
 These are **secrets** — never commit them. Both files should be `chmod 600` and owned by `lawnguy`.
 
@@ -90,9 +110,25 @@ sudo chmod 600 /srv/lawnguy/apps/api/.env /srv/lawnguy/apps/web/.env.local
 sudo chown lawnguy:lawnguy /srv/lawnguy/apps/api/.env /srv/lawnguy/apps/web/.env.local
 ```
 
+**`~lawnguy/.s3cfg`** — credentials for nightly DO Spaces backup uploads. The bootstrap script installed `s3cmd`; this file is what it reads. Generate the key/secret in DO panel → API → Spaces Keys.
+
+```bash
+sudo -u lawnguy bash -c "cat > ~lawnguy/.s3cfg <<'EOF'
+[default]
+access_key = <SPACES_ACCESS_KEY>
+secret_key = <SPACES_SECRET>
+host_base = tor1.digitaloceanspaces.com
+host_bucket = %(bucket)s.tor1.digitaloceanspaces.com
+use_https = True
+EOF"
+sudo chmod 600 ~lawnguy/.s3cfg
+```
+
+If you skip this step, nightly backups still write locally to `/var/backups/lawnguy/`; only the offsite copy is disabled. You can also disable the offsite leg entirely by commenting out the `Environment=DO_SPACES_BUCKET=...` line in [`ops/systemd/lawnguy-backup.service`](systemd/lawnguy-backup.service).
+
 ---
 
-## 4. First install + build + seed
+## 5. First install + build + seed
 
 ```bash
 cd /srv/lawnguy
@@ -103,7 +139,7 @@ sudo -u lawnguy pnpm seed   # imports website.json + brand.json into MongoDB
 
 ---
 
-## 5. Install systemd services
+## 6. Install systemd services
 
 ```bash
 sudo /srv/lawnguy/ops/scripts/install-systemd.sh
@@ -121,20 +157,26 @@ At this point both processes are up but nothing is reachable from the public IP 
 
 ---
 
-## 6. Point DNS at the VM
+## 7. Point DNS at the droplet
 
-In your registrar's DNS panel:
+Two options — pick one:
+
+**Option A: DigitalOcean DNS (simplest).** In DO panel → Networking → Domains, add `thelawnguybradford.ca`. Add records:
 
 ```
-A     @     <VM public IP>
-A     www   <VM public IP>
+A     @     <droplet IP>   TTL 300
+A     www   <droplet IP>   TTL 300
 ```
 
-Wait until `dig thelawnguybradford.ca +short` from your laptop returns the VM IP. Usually a few minutes.
+Then at your registrar, change nameservers to `ns1.digitalocean.com`, `ns2.digitalocean.com`, `ns3.digitalocean.com`.
+
+**Option B: Keep your registrar's DNS.** Add the same two A records there.
+
+Wait until `Resolve-DnsName thelawnguybradford.ca` (PowerShell) or `dig thelawnguybradford.ca +short` (Bash) returns the droplet IP. Usually a few minutes; can take up to an hour after a nameserver change.
 
 ---
 
-## 7. Issue SSL + enable Nginx site
+## 8. Issue SSL + enable Nginx site
 
 ```bash
 sudo /srv/lawnguy/ops/scripts/install-ssl.sh
@@ -150,14 +192,18 @@ Open `https://thelawnguybradford.ca/` — should serve the home page.
 
 ---
 
-## 8. Verify
+## 9. Verify
 
 | Check | Command |
 |---|---|
 | API health | `curl https://thelawnguybradford.ca/api/health` |
 | Public homepage data | `curl https://thelawnguybradford.ca/api/public/homepage \| jq '.content \| keys'` |
-| Backup ran today | `ls -lh /var/backups/lawnguy/` |
+| Admin gate (no token) | `curl -i https://thelawnguybradford.ca/api/admin/leads` → 401 |
+| Admin gate (with token) | `curl -H "Authorization: Bearer <ADMIN_TOKEN>" https://thelawnguybradford.ca/api/admin/leads` → 200 |
+| Services up | `systemctl is-active lawnguy-api lawnguy-web mongod nginx` |
 | Backup timer schedule | `systemctl list-timers \| grep lawnguy` |
+| Force a backup now | `sudo systemctl start lawnguy-backup.service`, then check `/var/backups/lawnguy/` AND `s3://tlg-backups/lawnguy/` (DO panel) |
+| UFW status | `ufw status` → only 22, 80, 443 |
 | Reboot survives | `sudo reboot` then re-check above |
 | SSL grade | <https://www.ssllabs.com/ssltest/analyze.html?d=thelawnguybradford.ca> |
 
@@ -171,7 +217,7 @@ From your laptop:
 git push   # to your remote
 ```
 
-On the VM:
+On the droplet:
 
 ```bash
 sudo -u lawnguy /srv/lawnguy/ops/scripts/deploy.sh
@@ -184,16 +230,28 @@ sudo -u lawnguy /srv/lawnguy/ops/scripts/deploy.sh --seed
 
 ## Backups
 
-- Nightly `mongodump` at 03:00 local → `/var/backups/lawnguy/lawnguy-<TIMESTAMP>.archive.gz`
-- 14-day local retention, then auto-pruned
-- To enable OCI Object Storage upload, set `OCI_BUCKET=<bucket-name>` in the systemd unit's `Environment=` line and configure the `oci` CLI for the `lawnguy` user
+Three layers, each independent of the others:
 
-Restore from a backup:
+1. **Nightly local mongodump** at 03:00 local → `/var/backups/lawnguy/lawnguy-<TIMESTAMP>.archive.gz`. 14-day retention, auto-pruned. Always on.
+2. **Nightly offsite to DO Spaces** — same archive, also uploaded to `s3://${DO_SPACES_BUCKET}/lawnguy/`. Controlled by the `Environment=DO_SPACES_BUCKET=...` line in [`systemd/lawnguy-backup.service`](systemd/lawnguy-backup.service); requires `~lawnguy/.s3cfg` (see §4). Comment out the `Environment=` line to disable.
+3. **Weekly droplet snapshot** — DO's automated backups feature ($4.80/mo). Restores the entire box image, not just data. Enabled at droplet creation; can be toggled in DO panel.
+
+Restore from a local archive:
 
 ```bash
 mongorestore --uri="mongodb://127.0.0.1:27017/lawnguy" \
   --archive=/var/backups/lawnguy/lawnguy-20260505T030000.archive.gz \
   --gzip --drop
+```
+
+Pull a Spaces archive back to the droplet (e.g. after losing the local one):
+
+```bash
+sudo -u lawnguy s3cmd get \
+  s3://${DO_SPACES_BUCKET}/lawnguy/lawnguy-20260505T030000.archive.gz \
+  /tmp/restore.archive.gz
+mongorestore --uri="mongodb://127.0.0.1:27017/lawnguy" \
+  --archive=/tmp/restore.archive.gz --gzip --drop
 ```
 
 ---

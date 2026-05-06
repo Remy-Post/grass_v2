@@ -7,6 +7,9 @@ Wants=mongod.service
 Type=oneshot
 User=lawnguy
 Group=lawnguy
+# Offsite backup target — comment out the Environment line to disable
+# Spaces upload (local nightly archive in /var/backups/lawnguy is unaffected).
+Environment=DO_SPACES_BUCKET=tlg-backups
 ExecStart=/srv/lawnguy/ops/scripts/backup.sh
 StandardOutput=journal
 StandardError=journal

@@ -1,10 +1,12 @@
 #!/usr/bin/env bash
 #
-# bootstrap-vm.sh — first-time setup for an Oracle OCI Always-Free Ampere A1 VM
-# (Ubuntu 22.04 LTS or 24.04 LTS, ARM64).
+# bootstrap-vm.sh — first-time setup for an Ubuntu 24.04 LTS VM.
+# Tested on DigitalOcean Droplet (Basic Regular 4 GB, x86_64, TOR1) and
+# Oracle OCI Always-Free Ampere A1 (ARM64). Either architecture works —
+# the MongoDB apt source below declares both amd64 and arm64.
 #
 # What this script does (idempotent — safe to re-run):
-#   1. Installs Node 22, pnpm 9, MongoDB 7, Nginx, certbot
+#   1. Installs Node 22, pnpm 9, MongoDB 7, Nginx, certbot, s3cmd
 #   2. Creates a `lawnguy` system user that runs the app processes
 #   3. Creates /srv/lawnguy, /var/log/lawnguy, /var/backups/lawnguy
 #   4. Opens firewall ports for HTTP/HTTPS (UFW) — keeps SSH open
@@ -14,8 +16,11 @@
 #     decide where to fetch from — GitHub, private mirror, scp).
 #   - Configure SSL — run install-ssl.sh after DNS is pointed at the VM.
 #   - Start app services — run install-systemd.sh after the repo is in place.
+#   - Write ~lawnguy/.s3cfg — the operator creates this on first deploy
+#     so the nightly backup can upload to DO Spaces.
 #
-# Run as root (sudo). Tested on Ubuntu 24.04 ARM64.
+# Run as root. On DO Ubuntu droplets that's the default user (`ssh root@...`).
+# On OCI it's `ssh ubuntu@... "sudo bash ..."`.
 
 set -euo pipefail
 
@@ -36,7 +41,8 @@ echo "==> Installing base packages"
 apt-get install -y \
   ca-certificates curl gnupg lsb-release \
   ufw nginx certbot python3-certbot-nginx \
-  build-essential git rsync logrotate
+  build-essential git rsync logrotate \
+  s3cmd
 
 # ── Node 22 ──────────────────────────────────────────────────────
 if ! command -v node >/dev/null 2>&1 || [[ "$(node -v 2>/dev/null | cut -d. -f1)" != "v22" ]]; then
