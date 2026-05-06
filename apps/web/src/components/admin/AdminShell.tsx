@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import type { Route } from 'next';
+import Image from 'next/image';
 import { CONTENT_KINDS } from '@lawnguy/brand';
 
 export function AdminShell({ children }: { children: React.ReactNode }) {
@@ -12,9 +13,16 @@ export function AdminShell({ children }: { children: React.ReactNode }) {
         >
           <span
             aria-hidden
-            className="grid h-7 w-7 place-items-center rounded-md bg-brand text-surface text-xs font-semibold"
+            className="grid h-7 w-16 place-items-center overflow-hidden rounded-md"
           >
-            TLG
+            <Image
+              src="/images/lawnguy-logo-text-transparent.webp"
+              alt=""
+              width={1128}
+              height={635}
+              sizes="64px"
+              className="h-full w-full object-contain"
+            />
           </span>
           Admin
         </Link>

@@ -244,9 +244,9 @@
             "Quick finish check before leaving when possible"
           ],
           "freq": "Weekly, biweekly, or as-needed",
-          "beforeImageSrc": "/images/services/mow-before.png",
-          "afterImageSrc": "/images/services/mow-after.png",
-          "itemImageSrc": "/images/service-items/mow-item.png",
+          "beforeImageSrc": "/images/service-uncut.png",
+          "afterImageSrc": "/images/service-cut.png",
+          "itemImageSrc": "/images/service-cut.png",
           "reviewKeywords": [
             "mow",
             "mowing",
@@ -277,9 +277,9 @@
             "Pair with mowing for a finished look"
           ],
           "freq": "With mowing or as quoted",
-          "beforeImageSrc": "/images/services/edge-before.png",
-          "afterImageSrc": "/images/services/edge-after.png",
-          "itemImageSrc": "/images/service-items/edge-item.png",
+          "beforeImageSrc": "/images/service-untrim.png",
+          "afterImageSrc": "/images/service-trim.png",
+          "itemImageSrc": "/images/service-trim.png",
           "reviewKeywords": [
             "edge",
             "edging",
@@ -309,9 +309,9 @@
             "Quote disposal or bagging needs after seeing the property"
           ],
           "freq": "Fall and as-needed",
-          "beforeImageSrc": "/images/services/leaf-before.png",
-          "afterImageSrc": "/images/services/leaf-after.png",
-          "itemImageSrc": "/images/service-items/leaf-item.png",
+          "beforeImageSrc": "/images/service-unleafs.png",
+          "afterImageSrc": "/images/service-leafs.png",
+          "itemImageSrc": "/images/service-leafs.png",
           "reviewKeywords": [
             "leaf",
             "leaves",
@@ -341,9 +341,9 @@
             "Suggestions for mowing or add-ons after the visit"
           ],
           "freq": "Spring and fall",
-          "beforeImageSrc": "/images/services/seasonal-before.png",
-          "afterImageSrc": "/images/services/seasonal-after.png",
-          "itemImageSrc": "/images/service-items/seasonal-item.png",
+          "beforeImageSrc": "/images/service-unseasonalCleanup.png",
+          "afterImageSrc": "/images/service-seasonalCleanup.png",
+          "itemImageSrc": "/images/service-seasonalCleanup.png",
           "reviewKeywords": [
             "seasonal cleanup",
             "spring cleanup",
@@ -372,9 +372,9 @@
             "Set simple expectations for watering and follow-up"
           ],
           "freq": "Seasonal and as-needed",
-          "beforeImageSrc": "/images/services/fert-before.png",
-          "afterImageSrc": "/images/services/fert-after.png",
-          "itemImageSrc": "/images/service-items/fert-item.png",
+          "beforeImageSrc": "/images/service-unairated.png",
+          "afterImageSrc": "/images/service-airated.png",
+          "itemImageSrc": "/images/service-airated.png",
           "reviewKeywords": [
             "seed",
             "seeding",
@@ -404,9 +404,9 @@
             "Suggest only what the yard actually needs"
           ],
           "freq": "As-needed add-on",
-          "beforeImageSrc": "/images/services/mulch-before.png",
-          "afterImageSrc": "/images/services/mulch-after.png",
-          "itemImageSrc": "/images/service-items/mulch-item.png",
+          "beforeImageSrc": "/images/service-ungarden.png",
+          "afterImageSrc": "/images/service-garden.png",
+          "itemImageSrc": "/images/service-garden.png",
           "reviewKeywords": [
             "garden",
             "garden maintenance",
@@ -636,12 +636,14 @@
           "eyebrow": "The clean finish",
           "title": "Same yard.",
           "emphasis": "Sharper result.",
-          "subtitle": "Drag, hover, or scroll through a simple overgrown-to-clean transformation. Replace mockups with real Bradford yard photos as soon as permission-based proof exists.",
+          "subtitle": "Drag, hover, or scroll through a real overgrown-to-clean lawn transformation from Bradford/BWG.",
           "badges": [
             "Cut + trim + blow",
             "Bradford/BWG",
-            "Mockup until real photos"
+            "Real yard photos"
           ],
+          "beforeImageSrc": "/images/service-uncut.png",
+          "afterImageSrc": "/images/service-cut.png",
           "beforeLabel": "before - overgrown lawn",
           "afterLabel": "after - clean cut lawn",
           "beforeTone": "before",
@@ -937,6 +939,7 @@
             "FAQ",
             "Rain Policy",
             "Before Your Visit",
+            "Web Development Team",
             "Privacy"
           ]
         }

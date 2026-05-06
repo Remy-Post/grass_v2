@@ -30,7 +30,12 @@ export function TransformationSection() {
           </div>
         </div>
         <div className="mt-10">
-          <TransformationSlider beforeLabel={d.beforeLabel} afterLabel={d.afterLabel} />
+          <TransformationSlider
+            beforeLabel={d.beforeLabel}
+            afterLabel={d.afterLabel}
+            beforeSrc={d.beforeImageSrc}
+            afterSrc={d.afterImageSrc}
+          />
         </div>
       </Container>
     </Section>

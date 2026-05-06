@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
+import Image from 'next/image';
 import {
   motion,
   useMotionValue,
@@ -14,6 +15,8 @@ import { useViewportScrollProgress } from '@/lib/scroll-motion';
 type Props = {
   beforeLabel: string;
   afterLabel: string;
+  beforeSrc?: string;
+  afterSrc?: string;
 };
 
 const MIN_REVEAL = 2;
@@ -25,7 +28,7 @@ function clampReveal(value: number) {
   return Math.max(MIN_REVEAL, Math.min(MAX_REVEAL, value));
 }
 
-export function TransformationSlider({ beforeLabel, afterLabel }: Props) {
+export function TransformationSlider({ beforeLabel, afterLabel, beforeSrc, afterSrc }: Props) {
   const reduceMotion = useReducedMotion();
   const containerRef = useRef<HTMLDivElement>(null);
   const figureRef = useRef<HTMLDivElement>(null);
@@ -34,7 +37,7 @@ export function TransformationSlider({ beforeLabel, afterLabel }: Props) {
   const reveal = useMotionValue(50);
 
   const scrollYProgress = useViewportScrollProgress(figureRef, ['start 80%', 'end 30%']);
-  const scrollReveal = useTransform(scrollYProgress, [0, 1], [12, 88]);
+  const scrollReveal = useTransform(scrollYProgress, [0, 1], [88, 12]);
 
   useMotionValueEvent(scrollReveal, 'change', (v) => {
     if (!userInteractedRef.current && !reduceMotion) {
@@ -80,8 +83,8 @@ export function TransformationSlider({ beforeLabel, afterLabel }: Props) {
   if (reduceMotion) {
     return (
       <div ref={containerRef} className="grid gap-4 sm:grid-cols-2">
-        <StaticPane variant="before" label={beforeLabel} />
-        <StaticPane variant="after" label={afterLabel} />
+        <StaticPane variant="before" label={beforeLabel} src={beforeSrc} />
+        <StaticPane variant="after" label={afterLabel} src={afterSrc} />
       </div>
     );
   }
@@ -113,12 +116,12 @@ export function TransformationSlider({ beforeLabel, afterLabel }: Props) {
           }
         }}
       >
-        <Pane variant="before" />
+        <Pane variant="after" src={afterSrc} />
         <div
           className="absolute inset-0"
           style={{ clipPath: 'inset(0 calc(100% - var(--reveal)) 0 0)' }}
         >
-          <Pane variant="after" />
+          <Pane variant="before" src={beforeSrc} />
         </div>
 
         <span className="absolute bottom-3 left-3 inline-flex items-center gap-1 rounded-full bg-surface/90 px-2.5 py-1 text-xs font-medium text-ink-soft shadow-sm backdrop-blur">
@@ -126,7 +129,6 @@ export function TransformationSlider({ beforeLabel, afterLabel }: Props) {
         </span>
         <span
           className="absolute bottom-3 right-3 inline-flex items-center gap-1 rounded-full bg-surface/90 px-2.5 py-1 text-xs font-medium text-ink-soft shadow-sm backdrop-blur"
-          style={{ opacity: 'min(calc((var(--reveal) - 30) / 50), 1)' }}
         >
           {afterLabel}
         </span>
@@ -180,59 +182,80 @@ export function TransformationSlider({ beforeLabel, afterLabel }: Props) {
   );
 }
 
-function Pane({ variant }: { variant: 'before' | 'after' }) {
+function Pane({ variant, src }: { variant: 'before' | 'after'; src?: string }) {
   const filterId = `noise-${variant}`;
   return (
     <div className="absolute inset-0">
-      <div
-        className={
-          variant === 'before'
-            ? 'absolute inset-0 bg-gradient-to-br from-amber-200 via-yellow-200 to-amber-400'
-            : 'absolute inset-0 bg-gradient-to-br from-emerald-200 via-grass/70 to-emerald-500'
-        }
-      />
-      <svg
-        aria-hidden
-        className="absolute inset-0 h-full w-full opacity-40 mix-blend-overlay"
-        preserveAspectRatio="xMidYMid slice"
-      >
-        <defs>
-          <filter id={filterId}>
-            <feTurbulence
-              type="fractalNoise"
-              baseFrequency={variant === 'before' ? 0.85 : 0.55}
-              numOctaves="2"
-              seed={variant === 'before' ? 7 : 13}
-            />
-            <feColorMatrix
-              type="matrix"
-              values={
-                variant === 'before'
-                  ? '0 0 0 0 0.5  0 0 0 0 0.35  0 0 0 0 0.1  0 0 0 1 0'
-                  : '0 0 0 0 0.18  0 0 0 0 0.42  0 0 0 0 0.16  0 0 0 1 0'
-              }
-            />
-          </filter>
-        </defs>
-        <rect width="100%" height="100%" filter={`url(#${filterId})`} />
-      </svg>
-      <div
-        aria-hidden
-        className={
-          variant === 'before'
-            ? 'absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-amber-700/30 to-transparent'
-            : 'absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-emerald-700/30 to-transparent'
-        }
-      />
+      {src ? (
+        <Image
+          src={src}
+          alt=""
+          fill
+          sizes="(min-width: 1024px) 960px, 100vw"
+          className="absolute inset-0 h-full w-full object-cover"
+          draggable={false}
+        />
+      ) : (
+        <>
+          <div
+            className={
+              variant === 'before'
+                ? 'absolute inset-0 bg-gradient-to-br from-amber-200 via-yellow-200 to-amber-400'
+                : 'absolute inset-0 bg-gradient-to-br from-emerald-200 via-grass/70 to-emerald-500'
+            }
+          />
+          <svg
+            aria-hidden
+            className="absolute inset-0 h-full w-full opacity-40 mix-blend-overlay"
+            preserveAspectRatio="xMidYMid slice"
+          >
+            <defs>
+              <filter id={filterId}>
+                <feTurbulence
+                  type="fractalNoise"
+                  baseFrequency={variant === 'before' ? 0.85 : 0.55}
+                  numOctaves="2"
+                  seed={variant === 'before' ? 7 : 13}
+                />
+                <feColorMatrix
+                  type="matrix"
+                  values={
+                    variant === 'before'
+                      ? '0 0 0 0 0.5  0 0 0 0 0.35  0 0 0 0 0.1  0 0 0 1 0'
+                      : '0 0 0 0 0.18  0 0 0 0 0.42  0 0 0 0 0.16  0 0 0 1 0'
+                  }
+                />
+              </filter>
+            </defs>
+            <rect width="100%" height="100%" filter={`url(#${filterId})`} />
+          </svg>
+          <div
+            aria-hidden
+            className={
+              variant === 'before'
+                ? 'absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-amber-700/30 to-transparent'
+                : 'absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-emerald-700/30 to-transparent'
+            }
+          />
+        </>
+      )}
     </div>
   );
 }
 
-function StaticPane({ variant, label }: { variant: 'before' | 'after'; label: string }) {
+function StaticPane({
+  variant,
+  label,
+  src,
+}: {
+  variant: 'before' | 'after';
+  label: string;
+  src?: string;
+}) {
   return (
     <figure className="overflow-hidden rounded-xl border border-line">
       <div className="relative aspect-video">
-        <Pane variant={variant} />
+        <Pane variant={variant} src={src} />
       </div>
       <figcaption className="border-t border-line bg-bg px-4 py-2 text-sm font-medium text-ink-muted">
         {label}

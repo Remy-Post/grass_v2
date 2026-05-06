@@ -1,11 +1,13 @@
 'use client';
 
 import { useState, useTransition, type FormEvent } from 'react';
+import { normalizeLeadAddress } from '@lawnguy/brand/helpers';
 import { LinkButton, Button } from '@/components/shared/Button';
 import { Icon } from '@/components/shared/Icon';
 import { siteSettings, quoteHelperConfig } from '@/lib/website-data';
 import { getQuoteCtaHref } from '@/lib/contact-href';
 import { postLead } from '@/lib/api';
+import { AddressAutocompleteInput } from './AddressAutocompleteInput';
 
 type Status =
   | { kind: 'idle' }
@@ -26,6 +28,7 @@ const CADENCE_OPTIONS = ['Weekly', 'Biweekly', 'One-time', 'Not sure'] as const;
 
 export function QuoteHelperForm() {
   const [status, setStatus] = useState<Status>({ kind: 'idle' });
+  const [address, setAddress] = useState('');
   const [, startTransition] = useTransition();
 
   function onSubmit(event: FormEvent<HTMLFormElement>) {
@@ -36,7 +39,7 @@ export function QuoteHelperForm() {
     const input = {
       name: String(fd.get('name') ?? ''),
       contact: String(fd.get('contact') ?? ''),
-      address: String(fd.get('address') ?? ''),
+      address: normalizeLeadAddress(String(fd.get('address') ?? '')),
       serviceNeed: (fd.get('serviceNeed') as string) || undefined,
       cadence: (fd.get('cadence') as string) || undefined,
       yardState: (fd.get('yardState') as string) || undefined,
@@ -49,6 +52,7 @@ export function QuoteHelperForm() {
       const result = await postLead(input);
       if (result.ok) {
         setStatus({ kind: 'ok', id: result.id });
+        setAddress('');
         form.reset();
         return;
       }
@@ -112,6 +116,7 @@ export function QuoteHelperForm() {
 
       <FormRow label="Your name" name="name" required errors={fieldErrors?.['name']}>
         <input
+          id="name"
           name="name"
           type="text"
           autoComplete="name"
@@ -129,6 +134,7 @@ export function QuoteHelperForm() {
         errors={fieldErrors?.['contact']}
       >
         <input
+          id="contact"
           name="contact"
           type="text"
           autoComplete="email"
@@ -145,10 +151,11 @@ export function QuoteHelperForm() {
         hint="Bradford / BWG only at launch."
         errors={fieldErrors?.['address']}
       >
-        <input
+        <AddressAutocompleteInput
+          id="address"
           name="address"
-          type="text"
-          autoComplete="street-address"
+          value={address}
+          onChange={setAddress}
           required
           maxLength={300}
           className={inputClass}
@@ -157,7 +164,7 @@ export function QuoteHelperForm() {
 
       <div className="grid gap-4 sm:grid-cols-2">
         <FormRow label="What do you need?" name="serviceNeed">
-          <select name="serviceNeed" className={inputClass} defaultValue="">
+          <select id="serviceNeed" name="serviceNeed" className={inputClass} defaultValue="">
             <option value="">Choose one</option>
             {SERVICE_OPTIONS.map((opt) => (
               <option key={opt} value={opt}>
@@ -167,7 +174,7 @@ export function QuoteHelperForm() {
           </select>
         </FormRow>
         <FormRow label="How often?" name="cadence">
-          <select name="cadence" className={inputClass} defaultValue="">
+          <select id="cadence" name="cadence" className={inputClass} defaultValue="">
             <option value="">Choose one</option>
             {CADENCE_OPTIONS.map((opt) => (
               <option key={opt} value={opt}>
@@ -179,7 +186,7 @@ export function QuoteHelperForm() {
       </div>
 
       <FormRow label="Lawn size" name="yardState">
-        <select name="yardState" className={inputClass} defaultValue="">
+        <select id="yardState" name="yardState" className={inputClass} defaultValue="">
           <option value="">Choose one</option>
           {siteSettings.lawnSizes.map((s) => (
             <option key={s} value={s}>
@@ -194,7 +201,7 @@ export function QuoteHelperForm() {
         name="notes"
         hint="Overgrown, slope, gates, pets — whatever might affect the quote."
       >
-        <textarea name="notes" rows={3} maxLength={2000} className={inputClass} />
+        <textarea id="notes" name="notes" rows={3} maxLength={2000} className={inputClass} />
       </FormRow>
 
       {/* Honeypot — hidden from users, bots tend to fill it */}
@@ -237,16 +244,16 @@ type FormRowProps = {
 
 function FormRow({ label, name, required, hint, errors, children }: FormRowProps) {
   return (
-    <label className="block space-y-1.5" htmlFor={name}>
-      <span className="text-sm font-medium text-ink">
+    <div className="block space-y-1.5">
+      <label className="block text-sm font-medium text-ink" htmlFor={name}>
         {label}
         {required ? <span className="text-brand"> *</span> : null}
-      </span>
+      </label>
       {children}
       {hint ? <span className="block text-xs text-ink-muted">{hint}</span> : null}
       {errors?.length ? (
         <span className="block text-xs text-red-700">{errors[0]}</span>
       ) : null}
-    </label>
+    </div>
   );
 }

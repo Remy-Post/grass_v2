@@ -12,6 +12,9 @@ export function ProblemScroll() {
     result: s.data.result,
     quoteNote: s.data.quoteNote,
     includes: s.data.includes,
+    beforeImageSrc: s.data.beforeImageSrc,
+    afterImageSrc: s.data.afterImageSrc,
+    itemImageSrc: s.data.itemImageSrc,
   }));
 
   return (

@@ -15,6 +15,10 @@
       "types": "./src/icons.ts",
       "default": "./src/icons.ts"
     },
+    "./helpers": {
+      "types": "./src/helpers.ts",
+      "default": "./src/helpers.ts"
+    },
     "./schemas": {
       "types": "./src/schemas/index.ts",
       "default": "./src/schemas/index.ts"

@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import type { Route } from 'next';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import type { RefObject } from 'react';
 import { useCallback, useEffect, useRef, useState } from 'react';
@@ -30,9 +31,28 @@ type ThemeMode = 'light' | 'night';
 const THEME_STORAGE_KEY = 'lawnguy-theme';
 const LIGHT_THEME_COLOR = '#1f5a3a';
 const NIGHT_THEME_COLOR = '#0b1710';
+const SETTINGS_ROUTE = '/admin/settings' as Route;
+const LOCAL_HOSTNAMES = new Set(['localhost', '127.0.0.1', '0.0.0.0', '::1']);
 
 function isThemeMode(value: string | null): value is ThemeMode {
   return value === 'light' || value === 'night';
+}
+
+function isLocalHostname(hostname: string) {
+  const normalized = hostname.toLowerCase().replace(/^\[|\]$/g, '');
+  return LOCAL_HOSTNAMES.has(normalized) || normalized.endsWith('.localhost');
+}
+
+function useShowLocalSettingsLink() {
+  const [showLink, setShowLink] = useState(process.env.NODE_ENV === 'development');
+
+  useEffect(() => {
+    setShowLink(
+      process.env.NODE_ENV === 'development' || isLocalHostname(window.location.hostname),
+    );
+  }, []);
+
+  return showLink;
 }
 
 function readStoredTheme(): ThemeMode | null {
@@ -229,10 +249,12 @@ function DesktopNavPanel({
   pathname,
   onClose,
   panelRef,
+  showLocalSettingsLink,
 }: {
   pathname: string;
   onClose: () => void;
   panelRef: RefObject<HTMLDivElement | null>;
+  showLocalSettingsLink: boolean;
 }) {
   const [activeServiceSlug, setActiveServiceSlug] = useState(services[0]?.slug ?? '');
 
@@ -251,10 +273,17 @@ function DesktopNavPanel({
               <Link
                 href="/"
                 onClick={onClose}
-                className="inline-flex h-10 w-10 items-center justify-center rounded-md bg-surface text-sm font-semibold text-brand"
+                className="inline-flex h-10 w-24 items-center justify-center overflow-hidden rounded-md shadow-sm ring-1 ring-surface/10"
                 aria-label="The Lawn Guy Bradford home"
               >
-                TLG
+                <Image
+                  src="/images/lawnguy-logo-text-transparent.webp"
+                  alt=""
+                  width={1128}
+                  height={635}
+                  sizes="96px"
+                  className="h-full w-full object-contain"
+                />
               </Link>
               <button
                 type="button"
@@ -301,10 +330,22 @@ function DesktopNavPanel({
               })}
             </nav>
 
-            <div className="mt-auto space-y-2 pt-7 text-xs font-medium text-surface/60">
-              <p>{siteSettings.serviceArea}</p>
-              <p>Text-first quotes</p>
-              <p>Evening/weekend visits</p>
+            <div className="mt-auto space-y-4 pt-7">
+              {showLocalSettingsLink && (
+                <Link
+                  href={SETTINGS_ROUTE}
+                  onClick={onClose}
+                  className="inline-flex items-center gap-2 rounded-md border border-surface/15 px-3 py-2 text-xs font-semibold text-surface/70 transition-colors hover:border-accent/60 hover:text-accent"
+                >
+                  <Icon name="Settings" size={15} />
+                  Site settings
+                </Link>
+              )}
+              <div className="space-y-2 text-xs font-medium text-surface/60">
+                <p>{siteSettings.serviceArea}</p>
+                <p>Text-first quotes</p>
+                <p>Evening/weekend visits</p>
+              </div>
             </div>
           </aside>
 
@@ -388,6 +429,7 @@ export function Header() {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const { theme, toggleTheme } = usePublicTheme();
   const scrollProgress = useScrollProgress(pathname);
+  const showLocalSettingsLink = useShowLocalSettingsLink();
   const panelRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
@@ -444,6 +486,7 @@ export function Header() {
           pathname={pathname}
           onClose={() => setIsDesktopOpen(false)}
           panelRef={panelRef}
+          showLocalSettingsLink={showLocalSettingsLink}
         />
       )}
 
@@ -451,6 +494,7 @@ export function Header() {
         open={isDrawerOpen}
         onClose={() => setIsDrawerOpen(false)}
         pathname={pathname}
+        showLocalSettingsLink={showLocalSettingsLink}
       />
     </>
   );

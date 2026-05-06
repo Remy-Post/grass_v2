@@ -2,6 +2,7 @@
 
 import { useRef } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { motion, useTransform, useReducedMotion, type MotionValue } from 'framer-motion';
 import { Container } from '@/components/shared/Container';
 import { Section } from '@/components/shared/Section';
@@ -18,6 +19,9 @@ export type ProblemServiceData = {
   result: string;
   quoteNote: string;
   includes: string[];
+  beforeImageSrc?: string;
+  afterImageSrc?: string;
+  itemImageSrc?: string;
 };
 
 type Props = {
@@ -50,8 +54,19 @@ function FallbackList({ services, headline, body }: Props) {
             <RevealItem
               key={service.slug}
               as="article"
-              className="group relative flex flex-col gap-3 rounded-xl border border-line bg-surface p-6 transition-shadow hover:shadow-md"
+              className="group relative flex flex-col gap-3 overflow-hidden rounded-xl border border-line bg-surface p-6 transition-shadow hover:shadow-md"
             >
+              {service.itemImageSrc ? (
+                <div className="relative -mx-6 -mt-6 aspect-[4/3] overflow-hidden border-b border-line bg-bg">
+                  <Image
+                    src={service.itemImageSrc}
+                    alt={`${service.title} result`}
+                    fill
+                    sizes="(min-width: 768px) 33vw, 100vw"
+                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                  />
+                </div>
+              ) : null}
               <div className="grid h-10 w-10 place-items-center rounded-md bg-brand/10 text-brand">
                 <Icon name={service.icon} size={20} />
               </div>
@@ -176,31 +191,43 @@ function ServicePanel({
         <p className="mt-auto pt-4 text-xs italic text-ink-muted">{service.quoteNote}</p>
       </div>
       <div className="grid grid-rows-2 gap-3">
-        <MiniPane variant="before" />
-        <MiniPane variant="after" />
+        <MiniPane variant="before" src={service.beforeImageSrc} />
+        <MiniPane variant="after" src={service.afterImageSrc} />
       </div>
     </motion.article>
   );
 }
 
-function MiniPane({ variant }: { variant: 'before' | 'after' }) {
+function MiniPane({ variant, src }: { variant: 'before' | 'after'; src?: string }) {
   return (
     <div className="relative overflow-hidden rounded-lg border border-line">
-      <div
-        className={
-          variant === 'before'
-            ? 'absolute inset-0 bg-gradient-to-br from-amber-200 via-yellow-200 to-amber-400'
-            : 'absolute inset-0 bg-gradient-to-br from-emerald-200 via-grass/70 to-emerald-500'
-        }
-      />
-      <div
-        aria-hidden
-        className={
-          variant === 'before'
-            ? 'absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-amber-700/30 to-transparent'
-            : 'absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-emerald-700/30 to-transparent'
-        }
-      />
+      {src ? (
+        <Image
+          src={src}
+          alt=""
+          fill
+          sizes="(min-width: 768px) 360px, 100vw"
+          className="absolute inset-0 h-full w-full object-cover"
+        />
+      ) : (
+        <>
+          <div
+            className={
+              variant === 'before'
+                ? 'absolute inset-0 bg-gradient-to-br from-amber-200 via-yellow-200 to-amber-400'
+                : 'absolute inset-0 bg-gradient-to-br from-emerald-200 via-grass/70 to-emerald-500'
+            }
+          />
+          <div
+            aria-hidden
+            className={
+              variant === 'before'
+                ? 'absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-amber-700/30 to-transparent'
+                : 'absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-emerald-700/30 to-transparent'
+            }
+          />
+        </>
+      )}
       <span className="absolute bottom-2 left-2 inline-flex items-center gap-1 rounded-full bg-surface/90 px-2 py-0.5 text-[10px] font-medium uppercase tracking-wider text-ink-muted shadow-sm backdrop-blur">
         {variant}
       </span>

@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import type { Route } from 'next';
+import Image from 'next/image';
 import { Container } from './Container';
 import { footerGroups, siteSettings } from '@/lib/website-data';
 
@@ -16,6 +17,8 @@ const FOOTER_LINK_HREF: Record<string, Route> = {
   FAQ: '/contact#faq',
   'Rain Policy': '/contact#faq',
   'Before Your Visit': '/contact#faq',
+  Partner: '/partner',
+  'Web Development Team': '/partner',
   Privacy: '/privacy',
 };
 
@@ -24,8 +27,17 @@ export function Footer() {
   return (
     <footer className="border-t border-line bg-surface-alt" role="contentinfo">
       <Container className="grid gap-10 py-14 sm:grid-cols-2 md:grid-cols-4">
-        <div className="space-y-2">
-          <p className="font-display text-lg font-semibold">{siteSettings.businessName}</p>
+        <div className="space-y-3">
+          <Link href="/" aria-label={`${siteSettings.businessName} home`} className="block w-fit">
+            <Image
+              src="/images/lawnguy-logo-full-transparent.webp"
+              alt={siteSettings.businessName}
+              width={1128}
+              height={635}
+              sizes="(min-width: 768px) 224px, 192px"
+              className="h-auto w-48 rounded-sm md:w-56"
+            />
+          </Link>
           <p className="text-sm text-ink-soft">{siteSettings.serviceArea}</p>
           <p className="text-sm text-ink-muted">{siteSettings.socialCount}</p>
         </div>

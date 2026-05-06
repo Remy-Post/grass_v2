@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import type { Route } from 'next';
+import Image from 'next/image';
 import { useEffect } from 'react';
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
 import { LinkButton } from './Button';
@@ -14,14 +15,17 @@ type Props = {
   open: boolean;
   onClose: () => void;
   pathname: string;
+  showLocalSettingsLink: boolean;
 };
+
+const SETTINGS_ROUTE = '/admin/settings' as Route;
 
 function isActive(pathname: string, href: string): boolean {
   if (href === '/') return pathname === '/';
   return pathname === href || pathname.startsWith(href + '/');
 }
 
-export function MobileNavDrawer({ open, onClose, pathname }: Props) {
+export function MobileNavDrawer({ open, onClose, pathname, showLocalSettingsLink }: Props) {
   const reduce = useReducedMotion();
 
   useEffect(() => {
@@ -89,9 +93,18 @@ export function MobileNavDrawer({ open, onClose, pathname }: Props) {
                 <Icon name="X" size={18} />
                 Close
               </button>
-              <span className="inline-flex h-8 items-center gap-1 rounded-full border border-surface/15 px-3 text-xs font-semibold">
-                <Icon name="MapPin" size={14} />
-                TLG
+              <span
+                className="inline-flex h-8 w-20 items-center justify-center overflow-hidden rounded-full border border-surface/15 px-1"
+                aria-label={siteSettings.businessName}
+              >
+                <Image
+                  src="/images/lawnguy-logo-text-transparent.webp"
+                  alt=""
+                  width={1128}
+                  height={635}
+                  sizes="80px"
+                  className="h-full w-full object-contain"
+                />
               </span>
             </div>
 
@@ -130,6 +143,18 @@ export function MobileNavDrawer({ open, onClose, pathname }: Props) {
                       </li>
                     );
                   })}
+                  {showLocalSettingsLink && (
+                    <li className="pt-5">
+                      <Link
+                        href={SETTINGS_ROUTE}
+                        onClick={onClose}
+                        className="inline-flex items-center gap-2 rounded-md border border-line px-3 py-2 text-sm font-semibold text-ink-soft transition-colors hover:border-brand/50 hover:text-brand"
+                      >
+                        <Icon name="Settings" size={16} />
+                        Site settings
+                      </Link>
+                    </li>
+                  )}
                 </ul>
               </nav>
             </div>

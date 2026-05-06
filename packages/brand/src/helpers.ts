@@ -39,3 +39,15 @@ export function byOrder<T extends { order: number }>(a: T, b: T): number {
 export function compactList<T>(items: ReadonlyArray<T | null | undefined | false>): T[] {
   return items.filter((item): item is T => Boolean(item));
 }
+
+export function normalizeLeadAddress(value: string): string {
+  return value
+    .replace(/\s+/g, ' ')
+    .replace(/\s*,\s*/g, ', ')
+    .replace(/,+/g, ',')
+    .replace(/\bOnt\.?\b/gi, 'ON')
+    .replace(/\bOntario\b/gi, 'ON')
+    .replace(/,\s*Canada\s*$/i, '')
+    .replace(/(?:,\s*)+$/g, '')
+    .trim();
+}

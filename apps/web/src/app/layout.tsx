@@ -16,6 +16,12 @@ const fraunces = Fraunces({
 });
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://thelawnguybradford.ca';
+const BRAND_LOGO = {
+  url: '/images/lawnguy-logo-full-transparent.webp',
+  width: 1128,
+  height: 635,
+  alt: 'The Lawn Guy Bradford logo',
+};
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -48,11 +54,13 @@ export const metadata: Metadata = {
     title: 'The Lawn Guy Bradford | Modern Lawn Care In Bradford',
     description:
       'Modern lawn care in Bradford/BWG by Remy. Text for a quote, book a visit, come home to a sharper lawn.',
+    images: [BRAND_LOGO],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'The Lawn Guy Bradford',
     description: 'Modern lawn care in Bradford/BWG.',
+    images: [BRAND_LOGO],
   },
   robots: {
     index: true,
