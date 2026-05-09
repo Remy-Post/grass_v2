@@ -10,7 +10,7 @@ import { Icon } from './Icon';
 import { MobileNavDrawer } from './MobileNavDrawer';
 import { cn } from '@/lib/cn';
 import { navItems, services, siteSettings } from '@/lib/website-data';
-import { getQuoteCtaHref } from '@/lib/contact-href';
+import { getQuoteRequestHref } from '@/lib/contact-href';
 
 function isActive(pathname: string, href: string): boolean {
   if (href === '/') return pathname === '/';
@@ -404,7 +404,7 @@ function DesktopNavPanel({
         </div>
 
         <a
-          href={getQuoteCtaHref()}
+          href={getQuoteRequestHref()}
           onClick={onClose}
           className="group flex h-11 items-center overflow-hidden bg-surface text-sm font-semibold text-ink"
         >
@@ -412,7 +412,7 @@ function DesktopNavPanel({
             {Array.from({ length: 8 }).map((_, index) => (
               <span key={index} className="inline-flex items-center gap-2">
                 <Icon name="MessageCircle" size={14} />
-                Text for a quote
+                Request a Quote
                 <Icon name="ArrowUpRight" size={14} />
               </span>
             ))}

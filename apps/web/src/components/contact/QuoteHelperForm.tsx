@@ -148,7 +148,7 @@ export function QuoteHelperForm() {
         label="Property address or neighbourhood"
         name="address"
         required
-        hint="Bradford / BWG only at launch."
+        hint="Bradford / BWG only."
         errors={fieldErrors?.['address']}
       >
         <AddressAutocompleteInput

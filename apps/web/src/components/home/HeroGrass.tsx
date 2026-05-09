@@ -497,7 +497,7 @@ export function HeroGrass() {
 
   return (
     <div
-      className="relative mx-auto aspect-[4/5] w-full max-w-md overflow-hidden rounded-2xl border border-line shadow-sm sm:aspect-[4/3] lg:aspect-[5/6]"
+      className="relative mx-auto hidden aspect-[4/5] w-full max-w-md overflow-hidden rounded-2xl border border-line shadow-sm sm:block sm:aspect-[4/3] lg:aspect-[5/6]"
       style={{
         background:
           'linear-gradient(to bottom, #d6e8f0 0%, #e8f1d9 50%, #d7eaa4 74%, #98cf41 100%)',

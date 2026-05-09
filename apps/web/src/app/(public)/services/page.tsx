@@ -3,10 +3,9 @@ import { Section } from '@/components/shared/Section';
 import { LinkButton } from '@/components/shared/Button';
 import { Icon } from '@/components/shared/Icon';
 import { ServiceList } from '@/components/services/ServiceList';
-import { HiddenServicesNote } from '@/components/services/HiddenServicesNote';
 import { FinalCta } from '@/components/home/FinalCta';
 import { pageCopy } from '@/lib/website-data';
-import { getQuoteCtaHref } from '@/lib/contact-href';
+import { getQuoteRequestHref } from '@/lib/contact-href';
 import { buildMetadata } from '@/lib/metadata';
 
 export const metadata = buildMetadata('services');
@@ -24,15 +23,14 @@ export default function ServicesPage() {
           </h1>
           <p className="text-ink-soft">{pageCopy.services.body}</p>
           <div className="pt-2">
-            <LinkButton href={getQuoteCtaHref()} size="md" variant="primary">
+            <LinkButton href={getQuoteRequestHref()} size="md" variant="primary">
               <Icon name="MessageCircle" size={16} />
-              Text For A Quote
+              Request a Quote
             </LinkButton>
           </div>
         </Container>
       </Section>
       <ServiceList />
-      <HiddenServicesNote />
       <FinalCta />
     </>
   );

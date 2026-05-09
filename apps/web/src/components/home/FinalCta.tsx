@@ -4,7 +4,7 @@ import { LinkButton } from '@/components/shared/Button';
 import { Icon } from '@/components/shared/Icon';
 import { Reveal } from '@/components/shared/Reveal';
 import { getCtaBlock } from '@/lib/website-data';
-import { getQuoteCtaHref } from '@/lib/contact-href';
+import { getQuoteRequestHref } from '@/lib/contact-href';
 
 export function FinalCta() {
   const cta = getCtaBlock('final');
@@ -23,7 +23,7 @@ export function FinalCta() {
           <p className="mx-auto mt-4 max-w-xl text-surface/85">{d.body}</p>
           <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
             <LinkButton
-              href={getQuoteCtaHref()}
+              href={getQuoteRequestHref()}
               size="lg"
               className="bg-accent text-ink hover:bg-yellow-300"
             >

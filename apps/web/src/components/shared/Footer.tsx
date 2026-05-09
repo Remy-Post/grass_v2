@@ -23,7 +23,6 @@ const FOOTER_LINK_HREF: Record<string, Route> = {
 };
 
 export function Footer() {
-  const year = new Date().getFullYear();
   return (
     <footer className="border-t border-line bg-surface-alt" role="contentinfo">
       <Container className="grid gap-10 py-14 sm:grid-cols-2 md:grid-cols-4">
@@ -65,18 +64,6 @@ export function Footer() {
           </div>
         ))}
       </Container>
-      <div className="border-t border-line">
-        <Container className="flex flex-col items-start justify-between gap-2 py-4 text-xs text-ink-muted sm:flex-row">
-          <p>
-            © {year} {siteSettings.businessName}. {siteSettings.serviceArea} only.
-          </p>
-          <p>
-            <a href={siteSettings.emailHref} className="hover:text-brand">
-              {siteSettings.emailDisplay}
-            </a>
-          </p>
-        </Container>
-      </div>
     </footer>
   );
 }

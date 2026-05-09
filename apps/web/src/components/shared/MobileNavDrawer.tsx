@@ -9,7 +9,7 @@ import { LinkButton } from './Button';
 import { Icon } from './Icon';
 import { cn } from '@/lib/cn';
 import { navItems, siteSettings } from '@/lib/website-data';
-import { getQuoteCtaHref } from '@/lib/contact-href';
+import { getQuoteRequestHref } from '@/lib/contact-href';
 
 type Props = {
   open: boolean;
@@ -190,9 +190,14 @@ export function MobileNavDrawer({ open, onClose, pathname, showLocalSettingsLink
             </div>
 
             <div className="px-3 pb-3">
-              <LinkButton href={getQuoteCtaHref()} size="md" variant="primary" className="w-full">
+              <LinkButton
+                href={getQuoteRequestHref()}
+                size="md"
+                variant="primary"
+                className="w-full"
+              >
                 <Icon name="MessageCircle" size={18} />
-                Text For A Quote
+                Request a Quote
               </LinkButton>
             </div>
           </motion.div>

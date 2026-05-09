@@ -1,8 +1,13 @@
 import { siteSettings } from './website-data.js';
 
+export const QUOTE_REQUEST_HREF = '/contact';
+
+export function getQuoteRequestHref(): string {
+  return QUOTE_REQUEST_HREF;
+}
+
 /**
- * Owner SMS link. Falls back to mailto if no phone is set yet
- * (siteSettings.phoneDisplay starts as "Phone number to add").
+ * Owner SMS link. Falls back to mailto if no public phone number is set.
  */
 export function getQuoteCtaHref(prefilledMessage?: string): string {
   const cleanedPhone = siteSettings.phoneHref.replace(/^tel:/, '').replace(/[^\d+]/g, '');

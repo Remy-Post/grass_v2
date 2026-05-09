@@ -1,7 +1,7 @@
 import { LinkButton } from './Button';
 import { Icon } from './Icon';
 import { getCtaBlock } from '@/lib/website-data';
-import { getQuoteCtaHref } from '@/lib/contact-href';
+import { getQuoteRequestHref } from '@/lib/contact-href';
 
 export function MobileStickyCta() {
   const cta = getCtaBlock('mobile-sticky');
@@ -17,7 +17,7 @@ export function MobileStickyCta() {
           <p className="truncate font-medium text-ink">{cta.data.title}</p>
           <p className="truncate text-sm text-ink-soft">{cta.data.subtitle}</p>
         </div>
-        <LinkButton href={getQuoteCtaHref()} size="sm" variant="primary">
+        <LinkButton href={getQuoteRequestHref()} size="sm" variant="primary">
           <Icon name="MessageCircle" size={16} />
           {cta.data.buttonLabel}
         </LinkButton>

@@ -68,4 +68,8 @@ describe('Hidden content cannot leak through the public data loader', () => {
       ].sort(),
     );
   });
+
+  test('weed and grub treatment FAQ is not public', () => {
+    expect(faqs.map((faq) => faq.slug)).not.toContain('weed-grub');
+  });
 });

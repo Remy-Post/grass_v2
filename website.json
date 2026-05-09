@@ -10,7 +10,7 @@
   },
   "v2Goal": {
     "summary": "Replace the proof-of-concept lawn marketplace feel with a modern, personal, Bradford-only lawn care website for Remy.",
-    "primaryConversion": "Text For A Quote",
+    "primaryConversion": "Request a Quote",
     "secondaryConversion": "Email for a quote or question",
     "businessPriority": "Win 5-10 recurring mowing clients in the first season, then add needed one-off services after quote visits.",
     "experiencePromise": "A showpiece visual website that still makes the service simple: text, quote visit, clean finish."
@@ -120,8 +120,8 @@
   },
   "siteSettings": {
     "businessName": "The Lawn Guy Bradford",
-    "phoneDisplay": "Phone number to add",
-    "phoneHref": "tel:",
+    "phoneDisplay": "+1 905 392 0623",
+    "phoneHref": "tel:+19053920623",
     "emailDisplay": "remy.post.06@gmail.com",
     "emailHref": "mailto:remy.post.06@gmail.com",
     "serviceArea": "Bradford West Gwillimbury",
@@ -139,7 +139,7 @@
     "heroBadge": "Bradford/BWG only",
     "heroTitle": "Modern Lawn Care In Bradford",
     "heroEmphasis": "with a clean finish.",
-    "heroBody": "Mowing, trimming, edging, and seasonal yard care by Remy. Text for a quote, book a visit, and come home to a sharper lawn.",
+    "heroBody": "Mowing, trimming, edging, and seasonal yard care by Remy. Request a quote, book a visit, and come home to a sharper lawn.",
     "heroPhotoLabel": "interactive lawn hero - overgrown to clean cut Bradford yard",
     "socialScore": "3 years",
     "socialCount": "Local lawn care experience; reviews starting this season",
@@ -320,7 +320,7 @@
             "debris"
           ],
           "problem": "Leaves and debris make the yard look neglected and can smother the lawn.",
-          "result": "A clearer, easier-to-maintain property.",
+          "result": "A tidy, healthier-looking lawn and property.",
           "quoteNote": "Quoted based on amount of leaves and cleanup scope."
         }
       },
@@ -414,7 +414,7 @@
             "tidy",
             "yard care"
           ],
-          "problem": "Garden areas make the yard feel unfinished.",
+          "problem": "Overgrown garden areas can make an otherwise clean yard look neglected.",
           "result": "A tidier property without turning the job into major landscaping.",
           "quoteNote": "Light maintenance only; major landscaping is out of scope."
         }
@@ -615,14 +615,14 @@
         }
       },
       {
-        "title": "Launch honest",
-        "slug": "launch-honest",
+        "title": "Fair pricing",
+        "slug": "fair-pricing",
         "enabled": true,
         "order": 60,
         "data": {
           "icon": "ShieldCheck",
-          "title": "Launch honest",
-          "description": "The site should be clear about what is available now and what is hidden until ready."
+          "title": "Fair pricing",
+          "description": "Quotes stay practical and fair, based on the yard size, lawn condition, and the work you actually need."
         }
       }
     ],
@@ -776,7 +776,7 @@
         "order": 30,
         "data": {
           "question": "Where do you work?",
-          "answer": "The Lawn Guy Bradford serves Bradford West Gwillimbury only at launch."
+          "answer": "The Lawn Guy Bradford serves Bradford West Gwillimbury."
         }
       },
       {
@@ -795,8 +795,8 @@
         "enabled": true,
         "order": 50,
         "data": {
-          "question": "What if it rains or the lawn is unsafe to cut?",
-          "answer": "If weather or lawn conditions make the cut unsafe or likely to look bad, Remy will reschedule as soon as practical."
+          "question": "What if it rains?",
+          "answer": "If rain delays your visit, Remy will reschedule as soon as the weather allows. Rain-delayed customers get priority access to the next available service window."
         }
       },
       {
@@ -832,7 +832,7 @@
       {
         "title": "Do you offer weed or grub treatments?",
         "slug": "weed-grub",
-        "enabled": true,
+        "enabled": false,
         "order": 90,
         "data": {
           "question": "Do you offer weed or grub treatments?",
@@ -853,8 +853,8 @@
           "emphasis": "with a clean finish.",
           "body": "Text Remy for mowing, trimming, cleanups, and seasonal yard care in Bradford/BWG.",
           "placeholder": "What does your yard need?",
-          "buttonLabel": "Text For A Quote",
-          "helperText": "No instant prices. No pressure. Just a clear quote after the yard is seen.",
+          "buttonLabel": "Request a Quote",
+          "helperText": "Ready for a cleaner lawn? Request a quote and Remy will take a quick look first, no pressure.",
           "title": "",
           "subtitle": ""
         }
@@ -871,7 +871,7 @@
           "emphasis": "Start with a text.",
           "body": "Send the address, what you need, and a few details. Remy will help you book a quick look and quote the work clearly.",
           "placeholder": "Your address or neighbourhood",
-          "buttonLabel": "Text For A Quote",
+          "buttonLabel": "Request a Quote",
           "helperText": "Serving Bradford West Gwillimbury only.",
           "title": "",
           "subtitle": ""
@@ -889,10 +889,10 @@
           "emphasis": "",
           "body": "",
           "placeholder": "",
-          "buttonLabel": "Text",
+          "buttonLabel": "Request a Quote",
           "helperText": "",
           "title": "Need a quote?",
-          "subtitle": "Text Remy"
+          "subtitle": "Contact Remy"
         }
       }
     ],
@@ -952,8 +952,8 @@
       "hero": {
         "headline": "Modern Lawn Care In Bradford",
         "emphasis": "with a clean finish.",
-        "body": "Mowing, trimming, edging, and seasonal yard care by Remy. Text for a quote, book a visit, and come home to a sharper lawn.",
-        "primaryCta": "Text For A Quote",
+        "body": "Mowing, trimming, edging, and seasonal yard care by Remy. Request a quote, book a visit, and come home to a sharper lawn.",
+        "primaryCta": "Request a Quote",
         "secondaryCta": "See Services"
       },
       "ownerNote": {
@@ -963,7 +963,7 @@
     },
     "services": {
       "headline": "Start with the lawn problem. Quote the right fix.",
-      "body": "Every yard is different, so the services are organized around what you actually see: long grass, messy edges, leaves, seasonal cleanup, thin areas, or garden spots that need attention."
+      "body": "Quotes are customized based on yard size, lawn condition, and the services requested."
     },
     "about": {
       "headline": "Built for Bradford lawns.",

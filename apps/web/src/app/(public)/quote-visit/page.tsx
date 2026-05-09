@@ -6,7 +6,7 @@ import { QuoteAffects } from '@/components/quote-visit/QuoteAffects';
 import { FirstAppointmentFlow } from '@/components/quote-visit/FirstAppointmentFlow';
 import { FinalCta } from '@/components/home/FinalCta';
 import { pageCopy } from '@/lib/website-data';
-import { getQuoteCtaHref } from '@/lib/contact-href';
+import { getQuoteRequestHref } from '@/lib/contact-href';
 import { buildMetadata } from '@/lib/metadata';
 
 export const metadata = buildMetadata('quoteVisit');
@@ -24,9 +24,9 @@ export default function QuoteVisitPage() {
           </h1>
           <p className="text-ink-soft">{pageCopy.quoteVisit.body}</p>
           <div className="pt-2">
-            <LinkButton href={getQuoteCtaHref()} size="md" variant="primary">
+            <LinkButton href={getQuoteRequestHref()} size="md" variant="primary">
               <Icon name="MessageCircle" size={16} />
-              Text For A Quote
+              Request a Quote
             </LinkButton>
           </div>
         </Container>

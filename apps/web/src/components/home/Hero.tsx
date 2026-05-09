@@ -2,7 +2,7 @@ import { Container } from '@/components/shared/Container';
 import { LinkButton } from '@/components/shared/Button';
 import { Icon } from '@/components/shared/Icon';
 import { getCtaBlock, siteSettings } from '@/lib/website-data';
-import { getQuoteCtaHref } from '@/lib/contact-href';
+import { getQuoteRequestHref } from '@/lib/contact-href';
 import { HeroGrass } from './HeroGrass';
 
 export function Hero() {
@@ -23,7 +23,7 @@ export function Hero() {
             </h1>
             <p className="max-w-prose text-lg text-ink-soft">{d.body}</p>
             <div className="flex flex-col gap-3 sm:flex-row">
-              <LinkButton href={getQuoteCtaHref()} size="lg" variant="primary">
+              <LinkButton href={getQuoteRequestHref()} size="lg" variant="primary">
                 <Icon name="MessageCircle" size={18} />
                 {d.buttonLabel}
               </LinkButton>

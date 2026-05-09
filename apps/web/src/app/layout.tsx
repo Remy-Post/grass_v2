@@ -53,7 +53,7 @@ export const metadata: Metadata = {
     siteName: 'The Lawn Guy Bradford',
     title: 'The Lawn Guy Bradford | Modern Lawn Care In Bradford',
     description:
-      'Modern lawn care in Bradford/BWG by Remy. Text for a quote, book a visit, come home to a sharper lawn.',
+      'Modern lawn care in Bradford/BWG by Remy. Request a quote, book a visit, come home to a sharper lawn.',
     images: [BRAND_LOGO],
   },
   twitter: {
